@@ -55,6 +55,10 @@ public class User {
         this.lastVisitDate = new Date();
     }
 
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
     public User(String login, String mail, String name, String password, long maxNotes, long maxNoteLength, Date registrationDate, Date lastVisitDate) {
         this.login = login;
         this.mail = mail;

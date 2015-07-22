@@ -1,12 +1,12 @@
 package data_base.data_access_objects;
 
-import data_base.entities.Note;
 import data_base.entities.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by Serega on 19.07.2015.
@@ -21,8 +21,13 @@ public class UsersDAO {
         manager.getTransaction().commit();
     }
 
-    public void getUser(User user) {
-        manager.find(user.getClass(), user.getId());
+    public User getUser(User user) {
+        Optional<User> opt = getAll().
+                stream().
+                filter((u) -> (u.getLogin() == user.getLogin())).
+                filter((u) -> (u.getPassword() == user.getPassword())).findFirst();
+        opt.orElse(new User(null, null));
+        return opt.get();
     }
     public User getUser(long id) {
         return manager.find(User.class, id);
