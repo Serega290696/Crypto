@@ -11,8 +11,8 @@ public enum Menu {
     SIGN_UP,
     EXIT,
 
-    ENCRYPT,
-    DECRYPT,
+    ENCRYPT(null, null, null),
+    DECRYPT(null, null, null),
 
     FROM_FAVORITES,
     FROM_FILE,

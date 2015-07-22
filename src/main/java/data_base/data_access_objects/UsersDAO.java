@@ -26,7 +26,7 @@ public class UsersDAO {
                 stream().
                 filter((u) -> (u.getLogin() == user.getLogin())).
                 filter((u) -> (u.getPassword() == user.getPassword())).findFirst();
-        opt.orElse(new User(null, null));
+//        opt.orElse(new User(null, null));
         return opt.get();
     }
     public User getUser(long id) {
