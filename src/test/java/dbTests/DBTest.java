@@ -33,10 +33,10 @@ public class DBTest extends TestCase{
 //        Assert.assertNotNull(userTmp);
 //    }
 //
-    @Test
-    public void testAddUser() {
-        usersDao.addUser(user);
-    }
+//    @Test
+//    public void testAddUser() {
+//        usersDao.addUser(user);
+//    }
 ////    @Test
 ////    public void testGetUser() {
 ////        usersDao.getUser(user);
@@ -62,10 +62,10 @@ public class DBTest extends TestCase{
 //
 //
 //
-//    @Test
-//    public void testAddNote() {
-//        notesDao.addNote(note);
-//    }
+    @Test
+    public void testAddNote() {
+        notesDao.addNote(note);
+    }
 //    @Test
 //    public void testGetNote() {
 //        notesDao.getNote(note);

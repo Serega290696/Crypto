@@ -3,7 +3,6 @@ package data_base.entities;
 import org.hibernate.annotations.NamedQuery;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 /**
  * Created by Serega on 21.07.2015.
@@ -26,24 +25,37 @@ public class Note {
     @Column(name = "id_user")
     private long idUser;
 
-    @Column(name = "date")
-    private Date date;
 
     public Note() {
-        this.title = "Note #" + id;
+        this.title = "Note";
         this.value = "Random text: " + Math.round(Math.random()*1000000);
-        idUser = 14;
+        idUser = 18;
 //        UsersDAO usersDAO = new UsersDAO();
 //        List<User> allUsers = usersDAO.getAll();
 //        this.idUser =
 //                allUsers.get((int) Math.round(Math.random() * allUsers.size())).getId();
     }
 
-    public Note(String title, String value, long idUser, Date date) {
+    public Note(String title, String value, long idUser) {
         this.title = title;
         this.value = value;
         this.idUser = idUser;
-        this.date = date;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public void setIdUser(long idUser) {
+        this.idUser = idUser;
     }
 
     public long getId() {
@@ -60,30 +72,6 @@ public class Note {
 
     public long getIdUser() {
         return idUser;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setId(long idNote) {
-        this.id = idNote;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public void setIdUser(long idUser) {
-        this.idUser = idUser;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     @Override

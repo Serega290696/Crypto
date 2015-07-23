@@ -19,16 +19,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "login", length = 25)
+    @Column(name = "login", length = 45)
     private String login;
 
-    @Column(name = "mail")
+    @Column(name = "mail", length = 45)
     private String mail;
 
-    @Column(name = "name")
+    @Column(name = "name", length = 45)
     private String name;
 
-    @Column(name = "password")
+    @Column(name = "password", length = 45)
     private String password;
 
     @Column(name = "max_notes")
@@ -45,8 +45,8 @@ public class User {
 
 
     public User() {
-        this.login = "exam" + Math.round(Math.random()*10000);
-        this.mail =  "mail" + Math.round(Math.random()*10000) + "@gmail.com";
+        this.login = "exam" + Math.round(Math.random()*1000);
+        this.mail =  "mail" + Math.round(Math.random()*1000) + "@gmail.com";
         this.name = "exam";
         this.password = "qwerty";
         this.maxNotes = 50;
