@@ -1,10 +1,9 @@
-package data_base.entities;
+package com.data_base.entities;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
-import org.hibernate.annotations.NamedQuery;
+import com.encryption.hashing.HashingMD5;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,22 +12,22 @@ import java.util.Date;
 @Entity
 @Table(name = "users")
 @NamedQuery(name = "User.getAll", query = "SELECT u FROM User u")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "login", length = 32)
+    @Column(name = "login", length = 45)
     private String login;
 
-    @Column(name = "mail")
+    @Column(name = "mail", length = 45)
     private String mail;
 
-    @Column(name = "name")
+    @Column(name = "name", length = 45)
     private String name;
 
-    @Column(name = "password")
+    @Column(name = "password", length = 45)
     private String password;
 
     @Column(name = "max_notes")
@@ -43,18 +42,34 @@ public class User {
     @Column(name = "last_visit_date")
     private Date lastVisitDate;
 
+    private HashingMD5 hashing = new HashingMD5();
 
     public User() {
-        this.login = "exam" + Math.round(Math.random()*10000);
-        this.mail =  "mail" + Math.round(Math.random()*10000) + "@gmail.com";
-        this.name = "exam";
-        this.password = "qwerty";
+        this.login = "exam" + Math.round(Math.random() * 100_000L);
+        this.mail = "mail" + Math.round(Math.random() * 100_000L) + "@gmail.com";
+        this.name = "user";
+        this.password = hashing.toHashCode("qwerty");
         this.maxNotes = 50;
         this.maxNoteLength = 100;
         this.registrationDate = new Date();
         this.lastVisitDate = new Date();
     }
 
+    public User(String login, String password) {
+        this.login = login;
+        this.mail = "mailT";
+        this.name = "user";
+        this.password = hashing.toHashCode(password);
+        this.maxNotes = 50;
+        this.maxNoteLength = 100;
+        this.registrationDate = new Date();
+        this.lastVisitDate = new Date();
+    }
+
+    //    public User(String login, String password) {
+//        this.login = login;
+//        this.password = password;
+//    }
     public User(String login, String mail, String name, String password, long maxNotes, long maxNoteLength, Date registrationDate, Date lastVisitDate) {
         this.login = login;
         this.mail = mail;
@@ -65,6 +80,7 @@ public class User {
         this.registrationDate = registrationDate;
         this.lastVisitDate = lastVisitDate;
     }
+
 
     public long getId() {
         return id;
@@ -119,7 +135,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = hashing.toHashCode(password);
     }
 
     public void setMaxNotes(long maxNotes) {

@@ -1,8 +1,7 @@
-package data_base.entities;
-
-import org.hibernate.annotations.NamedQuery;
+package com.data_base.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Serega on 21.07.2015.
@@ -10,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "notes")
 @NamedQuery(name = "Note.getAll", query = "SELECT n FROM Note n")
-public class Note {
+public class Note implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,19 +24,41 @@ public class Note {
     @Column(name = "id_user")
     private long idUser;
 
+
     public Note() {
-        this.title = "Note #" + id;
+        this.title = "Note";
         this.value = "Random text: " + Math.round(Math.random()*1000000);
-        idUser = 14;
+        idUser = 18;
 //        UsersDAO usersDAO = new UsersDAO();
 //        List<User> allUsers = usersDAO.getAll();
 //        this.idUser =
 //                allUsers.get((int) Math.round(Math.random() * allUsers.size())).getId();
     }
+    public Note(String title) {
+        this.title = title;
+        this.value = "Random text: " + Math.round(Math.random()*1000000);
+        idUser = 18;
+    }
 
     public Note(String title, String value, long idUser) {
         this.title = title;
         this.value = value;
+        this.idUser = idUser;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public void setIdUser(long idUser) {
         this.idUser = idUser;
     }
 
@@ -55,22 +76,6 @@ public class Note {
 
     public long getIdUser() {
         return idUser;
-    }
-
-    public void setId(long idNote) {
-        this.id = idNote;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public void setIdUser(long idUser) {
-        this.idUser = idUser;
     }
 
     @Override
