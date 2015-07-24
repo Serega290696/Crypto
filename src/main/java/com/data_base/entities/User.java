@@ -1,4 +1,4 @@
-package data_base.entities;
+package com.data_base.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -42,10 +42,20 @@ public class User implements Serializable {
 
 
     public User() {
-        this.login = "exam" + Math.round(Math.random()*1000);
-        this.mail =  "mail" + Math.round(Math.random()*1000) + "@gmail.com";
-        this.name = "exam";
+        this.login = "exam" + Math.round(Math.random()*100_000L);
+        this.mail =  "mail" + Math.round(Math.random()*100_000L) + "@gmail.com";
+        this.name = "user";
         this.password = "qwerty";
+        this.maxNotes = 50;
+        this.maxNoteLength = 100;
+        this.registrationDate = new Date();
+        this.lastVisitDate = new Date();
+    }
+    public User(String login, String password) {
+        this.login = login;
+        this.mail =  "mailT";
+        this.name = "user";
+        this.password = password;
         this.maxNotes = 50;
         this.maxNoteLength = 100;
         this.registrationDate = new Date();

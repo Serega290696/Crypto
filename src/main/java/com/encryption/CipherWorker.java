@@ -1,6 +1,6 @@
-package encryption;
+package com.encryption;
 
-import exceptions.EncryptionException;
+import com.exceptions.EncryptionException;
 
 /**
  * Created by Serega on 22.07.2015.

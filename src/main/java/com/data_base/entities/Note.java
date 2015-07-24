@@ -1,4 +1,4 @@
-package data_base.entities;
+package com.data_base.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -33,6 +33,11 @@ public class Note implements Serializable {
 //        List<User> allUsers = usersDAO.getAll();
 //        this.idUser =
 //                allUsers.get((int) Math.round(Math.random() * allUsers.size())).getId();
+    }
+    public Note(String title) {
+        this.title = title;
+        this.value = "Random text: " + Math.round(Math.random()*1000000);
+        idUser = 18;
     }
 
     public Note(String title, String value, long idUser) {

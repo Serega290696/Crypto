@@ -1,4 +1,4 @@
-package console_interface;
+package com;
 
 /**
  * Created by Serega on 24.07.2015.

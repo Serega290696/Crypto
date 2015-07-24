@@ -1,4 +1,4 @@
-package file_worker;
+package com.file_worker;
 
 /**
  * Created by Serega on 23.07.2015.

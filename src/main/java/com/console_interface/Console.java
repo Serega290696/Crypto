@@ -1,16 +1,19 @@
-package console_interface;
+package com.console_interface;
 
-import console_interface.enumeration.Menu;
-import console_interface.enumeration.TextSource;
-import data_base.data_access_objects.NotesDAO;
-import data_base.data_access_objects.UsersDAO;
-import data_base.entities.User;
-import encryption.CipherWorker;
-import encryption.hashing.HashingMD5;
-import exceptions.EncryptionException;
-import exceptions.IncorrectInput;
-import file_worker.FileWorker;
-import file_worker.IFileWorker;
+import com.AppInterface;
+import com.console_interface.enumeration.Menu;
+import com.console_interface.enumeration.TextSource;
+import com.data_base.data_access_objects.DAOClass;
+import com.data_base.data_access_objects.NotesDAO;
+import com.data_base.data_access_objects.UsersDAO;
+import com.data_base.entities.Note;
+import com.data_base.entities.User;
+import com.encryption.CipherWorker;
+import com.encryption.hashing.HashingMD5;
+import com.exceptions.EncryptionException;
+import com.exceptions.IncorrectInput;
+import com.file_worker.FileWorker;
+import com.file_worker.IFileWorker;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,8 +37,8 @@ public class Console implements AppInterface {
     private HashingMD5 hashing = new HashingMD5();
 
     private IFileWorker fileWorker = new FileWorker();
-    private UsersDAO usersDAO = new UsersDAO();
-    private NotesDAO notesDAO = new NotesDAO();
+    private DAOClass<User> usersDAO = new UsersDAO();
+    private DAOClass<Note> notesDAO = new NotesDAO();
 
     private static final String SPLIT = "\n============================ ";
     private static final String SPLIT2 = " ============================\n";
@@ -133,18 +136,17 @@ public class Console implements AppInterface {
 
         System.out.println("Input login:");
         String inputLogin = in.readLine();
-//check if does not exist
         System.out.println("Input password:");
         String inputPassword = in.readLine();
 
-//        usersDao.getUser(new User(inputLogin, inputPassword));
-        menu = Menu.GREETINGS;
-//        if (menu.getSubmenu().size() >= --inputValue)
-//            menu = menu.getSubmenu().get(inputValue);
-//        else {
-//            menu = Menu.ACTION_CHOICE;
-//        }
-
+        User userT = usersDAO.get(new User(inputLogin, inputPassword));
+        if (userT != null) {
+            curUser = userT;
+            menu = Menu.ACTION_CHOICE;
+        } else {
+            System.err.println("\nUser with such login and password does not exist!");
+            menu = Menu.GREETINGS;
+        }
     }
 
     private void signUp() {
@@ -195,7 +197,7 @@ public class Console implements AppInterface {
                         "Please, try again.");
             } while (true);
             newUser.setPassword(hashing.toHashCode(s));
-            usersDAO.addUser(newUser);
+            usersDAO.add(newUser);
             System.out.println("Registration finished successfully!");
         } catch (IOException e) {
             e.printStackTrace();
@@ -227,26 +229,26 @@ public class Console implements AppInterface {
                 src = in.readLine();
                 System.out.println("Enter key: ");
                 key = in.readLine();
-                System.out.println("Enter text to encryption: ");
+                System.out.println("Enter text to com.encryption: ");
                 text = in.readLine();
                 try {
-                    notesDAO.addNote(src, crypto.encrypt(text, key), curUser);
+                    notesDAO.add(new Note(src, crypto.encrypt(text, key), curUser.getId()));
                 } catch (EncryptionException e) {
                     e.printStackTrace();
                 }
                 break;
             case CONSOLE:
-                System.out.println("Enter key to encryption: ");
+                System.out.println("Enter key to com.encryption: ");
                 key = in.readLine();
-                System.out.println("Enter text to encryption: ");
+                System.out.println("Enter text to com.encryption: ");
                 text = in.readLine();
                 break;
             case FILE:
                 System.out.println("Enter name with full path of new file\n(example: C:/myFolder/anotherFolder/myFile.txt): ");
                 src = in.readLine();
-                System.out.println("Enter key to encryption: ");
+                System.out.println("Enter key to com.encryption: ");
                 key = in.readLine();
-                System.out.println("Enter text to encryption: ");
+                System.out.println("Enter text to com.encryption: ");
                 text = in.readLine();
                 try {
                     fileWorker.write(src, crypto.encrypt(text, key));
@@ -280,7 +282,7 @@ public class Console implements AppInterface {
                 case NOTE:
                     System.out.println("Enter note name: ");
                     src = in.readLine();
-                    decText = crypto.decrypt(notesDAO.getNote(src).getValue(), key);
+                    decText = crypto.decrypt(notesDAO.get(new Note(src)).getValue(), key);
                     break;
                 case CONSOLE:
                     System.out.println("Enter text to operation: ");

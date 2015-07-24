@@ -1,4 +1,4 @@
-package encryption;
+package com.encryption;
 
 /**
  * Created by Serega on 22.07.2015.

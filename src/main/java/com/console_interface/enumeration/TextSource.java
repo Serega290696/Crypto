@@ -1,4 +1,4 @@
-package console_interface.enumeration;
+package com.console_interface.enumeration;
 
 /**
  * Created by Serega on 24.07.2015.

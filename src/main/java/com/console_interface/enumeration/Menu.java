@@ -1,4 +1,4 @@
-package console_interface.enumeration;
+package com.console_interface.enumeration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
