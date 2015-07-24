@@ -1,5 +1,7 @@
 package com.data_base.entities;
 
+import com.encryption.hashing.HashingMD5;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -40,29 +42,31 @@ public class User implements Serializable {
     @Column(name = "last_visit_date")
     private Date lastVisitDate;
 
+    private HashingMD5 hashing = new HashingMD5();
 
     public User() {
-        this.login = "exam" + Math.round(Math.random()*100_000L);
-        this.mail =  "mail" + Math.round(Math.random()*100_000L) + "@gmail.com";
+        this.login = "exam" + Math.round(Math.random() * 100_000L);
+        this.mail = "mail" + Math.round(Math.random() * 100_000L) + "@gmail.com";
         this.name = "user";
-        this.password = "qwerty";
-        this.maxNotes = 50;
-        this.maxNoteLength = 100;
-        this.registrationDate = new Date();
-        this.lastVisitDate = new Date();
-    }
-    public User(String login, String password) {
-        this.login = login;
-        this.mail =  "mailT";
-        this.name = "user";
-        this.password = password;
+        this.password = hashing.toHashCode("qwerty");
         this.maxNotes = 50;
         this.maxNoteLength = 100;
         this.registrationDate = new Date();
         this.lastVisitDate = new Date();
     }
 
-//    public User(String login, String password) {
+    public User(String login, String password) {
+        this.login = login;
+        this.mail = "mailT";
+        this.name = "user";
+        this.password = hashing.toHashCode(password);
+        this.maxNotes = 50;
+        this.maxNoteLength = 100;
+        this.registrationDate = new Date();
+        this.lastVisitDate = new Date();
+    }
+
+    //    public User(String login, String password) {
 //        this.login = login;
 //        this.password = password;
 //    }
@@ -131,7 +135,7 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = hashing.toHashCode(password);
     }
 
     public void setMaxNotes(long maxNotes) {

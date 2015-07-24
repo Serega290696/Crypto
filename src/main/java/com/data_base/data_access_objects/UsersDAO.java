@@ -43,7 +43,9 @@ public class UsersDAO implements DAOClass<User> {
     public User get(User user) {
         User returnedUser = null;
         for (User u : getAll()) {
-            if (u.getLogin().equals(user.getLogin()))
+            if (u.getLogin().equals(user.getLogin())) {
+                System.out.println(u.getPassword());
+                System.out.println(user.getPassword());
                 if (u.getPassword().equals(user.getPassword())) {
                     returnedUser = u;
                     break;
@@ -51,6 +53,7 @@ public class UsersDAO implements DAOClass<User> {
                     returnedUser = null;
                     break;
                 }
+            }
         }
         return returnedUser;
     }

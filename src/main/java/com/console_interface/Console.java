@@ -18,7 +18,6 @@ import com.file_worker.IFileWorker;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
@@ -27,11 +26,11 @@ import java.util.stream.Stream;
  */
 public class Console implements AppInterface {
 
-    private static final Logger log = Logger.getLogger("mylogger");
+    private static final Logger log = Logger.getLogger("file");
+    private static final Logger log2 = Logger.getLogger("ConsoleAppender");
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     private User curUser = null;
-    private Menu menu = Menu.ACTION_CHOICE;
-    private Scanner scanner = new Scanner(System.in);
+    private Menu menu = Menu.GREETINGS;
 
     private CipherWorker crypto = new CipherWorker();
     private HashingMD5 hashing = new HashingMD5();
@@ -49,20 +48,17 @@ public class Console implements AppInterface {
 
     public Console() {
         this(null);
+//        log.info("In console constructor");
+//        log2.info("In console constructor");
     }
 
     public Console(User curUser) {
-        System.out.println("* Console interface created");
         this.curUser = curUser;
         isExit = false; // на всякий случай ;)
     }
 
     public void launch() {
-        System.out.println(SPLIT + SPLIT);
-        System.out.println("* Console interface launched");
-        System.out.println(SPLIT + SPLIT);
-        log.info("I`m here!");
-        log.warning("Some errors!");
+//        log.info("Console interface launched");
 //        log.t("Some errors!");
 //        Stream.of(
 //                "aaa2",
@@ -152,7 +148,7 @@ public class Console implements AppInterface {
     private void signUp() {
         System.out.println(SPLIT + menu.name() + SPLIT2);
         User newUser = new User();
-        String pre = "Enter";
+        String pre = "Enter ";
         String suf = ": ";
         try {
             String s = "";
@@ -161,10 +157,12 @@ public class Console implements AppInterface {
                 System.out.println(pre + "login" + suf);
                 s = in.readLine();
                 String tempS = s;
-                if (usersDAO.getAll().stream().filter((u) -> u.getLogin().equals(tempS)).count() == 0)
+                if (s.length() == 0)
+                    System.err.println("You must enter login!\n");
+                else if (usersDAO.getAll().stream().filter((u) -> u.getLogin().equals(tempS)).count() == 0)
                     break;
                 else System.err.println("User with such login already exist!\n" +
-                        "Please, enter another login.");
+                            "Please, enter another login.");
             } while (true);
             newUser.setLogin(s);
 
@@ -172,10 +170,12 @@ public class Console implements AppInterface {
                 System.out.println(pre + "mail" + suf);
                 s = in.readLine();
                 String tempS = s;
-                if (usersDAO.getAll().stream().filter((u) -> u.getMail().equals(tempS)).count() == 0)
+                if (s.length() == 0)
+                    System.err.println("You must enter mail!\n");
+                else if (usersDAO.getAll().stream().filter((u) -> u.getMail().equals(tempS)).count() == 0)
                     break;
                 else System.err.println("User with mail login already exist!\n" +
-                        "Please, enter another mail.");
+                            "Please, enter another mail.");
             } while (true);
             newUser.setMail(s);
 
@@ -192,13 +192,15 @@ public class Console implements AppInterface {
                 } while (s.length() < 6);
                 System.out.println("Please, repeat password again" + suf);
                 s2 = in.readLine();
-                if (!s.equals(s2)) break;
+                if (s.equals(s2)) break;
                 else System.err.println("Passwords don't match.\n" +
                         "Please, try again.");
             } while (true);
-            newUser.setPassword(hashing.toHashCode(s));
+            System.out.println("REMEMBER YOUR PASSWORD: " + s);
+            newUser.setPassword(s);
             usersDAO.add(newUser);
             System.out.println("Registration finished successfully!");
+            menu = Menu.ACTION_CHOICE;
         } catch (IOException e) {
             e.printStackTrace();
         }
