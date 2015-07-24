@@ -1,8 +1,11 @@
 package dbTests;
 
-import deleted.Users2DAO;
-import deleted.User2;
+import data_base.data_access_objects.NotesDAO;
+import data_base.data_access_objects.UsersDAO;
+import data_base.entities.Note;
+import data_base.entities.User;
 import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -11,38 +14,25 @@ import org.junit.Test;
 public class DBTest extends TestCase{
 
 
-//    private final NotesDAO notesDao = new NotesDAO();
-//    private final UsersDAO usersDao = new UsersDAO();
+    private final NotesDAO notesDao = new NotesDAO();
+    private final UsersDAO usersDao = new UsersDAO();
 
-//    private final User user;
+    private final User user;
 //    private final User user2;
-//    private final Note note;
+    private final Note note;
 
-//    {
-//        user = new User();
+    {
+        user = new User();
 //        user2 = new User("Serega", "qwerty123");
-//        note = new Note();
-//    }
-
-    Users2DAO users2Dao= new Users2DAO();
+        note = new Note();
+    }
 
     @Test
-    public void testSaveRecord() throws Exception {
-        //Создаем автомобиль для записи в БД
-        User2 user2 = new User2();
-        user2.setLogin("BMW --- === ***");
-        //Записали в БД
-        User2 user2T = users2Dao.add(user2);
-
-        //Вывели записанную в БД запись
-        System.out.println(user2T);
+    public void testGetUser() {
+        User userTmp = new UsersDAO().getUser(user);
+        System.out.println(userTmp);
+        Assert.assertNotNull(userTmp);
     }
-//    @Test
-//    public void testGetUser() {
-//        User userTmp = new UsersDAO().getUser(user2);
-//        System.out.println(userTmp);
-//        Assert.assertNotNull(userTmp);
-//    }
 //
 //    @Test
 //    public void testAddUser() {

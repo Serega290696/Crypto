@@ -6,6 +6,7 @@ import data_base.data_access_objects.NotesDAO;
 import data_base.data_access_objects.UsersDAO;
 import data_base.entities.User;
 import encryption.CipherWorker;
+import encryption.hashing.HashingMD5;
 import exceptions.EncryptionException;
 import exceptions.IncorrectInput;
 import file_worker.FileWorker;
@@ -30,6 +31,7 @@ public class Console {
     private Scanner scanner = new Scanner(System.in);
 
     private CipherWorker crypto = new CipherWorker();
+    private HashingMD5 hashing = new HashingMD5();
 
     private IFileWorker fileWorker = new FileWorker();
     private UsersDAO usersDAO = new UsersDAO();
@@ -184,12 +186,12 @@ public class Console {
                 else System.err.println("Passwords don't match.\n" +
                         "Please, try again.");
             } while (true);
-            newUser.setPassword(s);
+            newUser.setPassword(hashing.toHashCode(s));
+            usersDAO.addUser(newUser);
+            System.out.println("Registration finished successfully!");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void chooseAction() {
