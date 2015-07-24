@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 /**
  * Created by Serega on 22.07.2015.
  */
-public class Console {
+public class Console implements AppInterface {
 
     private static final Logger log = Logger.getLogger("mylogger");
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -49,11 +49,15 @@ public class Console {
     }
 
     public Console(User curUser) {
+        System.out.println("* Console interface created");
         this.curUser = curUser;
         isExit = false; // на всякий случай ;)
     }
 
-    public void mainAlgorithm() throws IOException {
+    public void launch() {
+        System.out.println(SPLIT + SPLIT);
+        System.out.println("* Console interface launched");
+        System.out.println(SPLIT + SPLIT);
         log.info("I`m here!");
         log.warning("Some errors!");
 //        log.t("Some errors!");
@@ -64,39 +68,43 @@ public class Console {
 //        ).
 //                forEach(new Console()::choiceListPrinter);
 
-        while (!isExit) {
-            switch (menu) {
-                case GREETINGS:
-                    greetings();
-                    break;
-                case ACTION_CHOICE:
-                    chooseAction();
-                    break;
-                case SOURCE_CHOICE:
-                    chooseSource();
-                    break;
+        try {
+            while (!isExit) {
+                switch (menu) {
+                    case GREETINGS:
+                        greetings();
+                        break;
+                    case ACTION_CHOICE:
+                        chooseAction();
+                        break;
+                    case SOURCE_CHOICE:
+                        chooseSource();
+                        break;
 
-                case SIGN_IN:
-                    signIn();
-                    break;
-                case SIGN_UP:
-                    signUp();
-                    break;
+                    case SIGN_IN:
+                        signIn();
+                        break;
+                    case SIGN_UP:
+                        signUp();
+                        break;
 
-                case ENCRYPT:
-                    encrypt();
-                    break;
-                case DECRYPT:
-                    decrypt();
-                    break;
+                    case ENCRYPT:
+                        encrypt();
+                        break;
+                    case DECRYPT:
+                        decrypt();
+                        break;
 
-                case EXIT:
-                    isExit = true;
-                    break;
-                default:
+                    case EXIT:
+                        isExit = true;
+                        break;
+                    default:
 
-                    break;
+                        break;
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         System.out.println("Goodbye" + ((curUser != null) ? ", " + curUser.getName() : "") + ".");
     }
@@ -171,18 +179,18 @@ public class Console {
 
             System.out.println(pre + "name (enter '0' to miss this stage)" + suf);
             s = in.readLine();
-            newUser.setName(s.equals("0")?"":s);
+            newUser.setName(s.equals("0") ? "" : s);
             do {
                 do {
                     System.out.println(pre + "password (minimum 6 character)" + suf);
                     s = in.readLine();
-                    if(s.length() < 6)
+                    if (s.length() < 6)
                         System.err.println("The password must to contain minimum 6 characters!" +
                                 "Your password contain only " + s.length() + " symbols.");
                 } while (s.length() < 6);
                 System.out.println("Please, repeat password again" + suf);
                 s2 = in.readLine();
-                if(!s.equals(s2)) break;
+                if (!s.equals(s2)) break;
                 else System.err.println("Passwords don't match.\n" +
                         "Please, try again.");
             } while (true);
