@@ -1,14 +1,21 @@
 package console_interface;
 
+import console_interface.enumeration.Menu;
+import console_interface.enumeration.TextSource;
+import data_base.data_access_objects.NotesDAO;
+import data_base.data_access_objects.UsersDAO;
 import data_base.entities.User;
 import encryption.CipherWorker;
 import exceptions.EncryptionException;
 import exceptions.IncorrectInput;
+import file_worker.FileWorker;
+import file_worker.IFileWorker;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 /**
@@ -16,12 +23,17 @@ import java.util.stream.Stream;
  */
 public class Console {
 
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private static final Logger log = Logger.getLogger("mylogger");
+    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     private User curUser = null;
     private Menu menu = Menu.ACTION_CHOICE;
-    //    private UsersDAO usersDao = new UsersDAO();
     private Scanner scanner = new Scanner(System.in);
+
     private CipherWorker crypto = new CipherWorker();
+
+    private IFileWorker fileWorker = new FileWorker();
+    private UsersDAO usersDAO = new UsersDAO();
+    private NotesDAO notesDAO = new NotesDAO();
 
     private static final String SPLIT = "\n============================ ";
     private static final String SPLIT2 = " ============================\n";
@@ -40,6 +52,9 @@ public class Console {
     }
 
     public void mainAlgorithm() throws IOException {
+        log.info("I`m here!");
+        log.warning("Some errors!");
+//        log.t("Some errors!");
 //        Stream.of(
 //                "aaa2",
 //                "bbb2",
@@ -107,10 +122,10 @@ public class Console {
         System.out.println(SPLIT + menu.name() + SPLIT2);
 
         System.out.println("Input login:");
-        String inputLogin = br.readLine();
+        String inputLogin = in.readLine();
 //check if does not exist
         System.out.println("Input password:");
-        String inputPassword = br.readLine();
+        String inputPassword = in.readLine();
 
 //        usersDao.getUser(new User(inputLogin, inputPassword));
         menu = Menu.GREETINGS;
@@ -123,6 +138,58 @@ public class Console {
     }
 
     private void signUp() {
+        System.out.println(SPLIT + menu.name() + SPLIT2);
+        User newUser = new User();
+        String pre = "Enter";
+        String suf = ": ";
+        try {
+            String s = "";
+            String s2 = "";
+            do {
+                System.out.println(pre + "login" + suf);
+                s = in.readLine();
+                String tempS = s;
+                if (usersDAO.getAll().stream().filter((u) -> u.getLogin().equals(tempS)).count() == 0)
+                    break;
+                else System.err.println("User with such login already exist!\n" +
+                        "Please, enter another login.");
+            } while (true);
+            newUser.setLogin(s);
+
+            do {
+                System.out.println(pre + "mail" + suf);
+                s = in.readLine();
+                String tempS = s;
+                if (usersDAO.getAll().stream().filter((u) -> u.getMail().equals(tempS)).count() == 0)
+                    break;
+                else System.err.println("User with mail login already exist!\n" +
+                        "Please, enter another mail.");
+            } while (true);
+            newUser.setMail(s);
+
+            System.out.println(pre + "name (enter '0' to miss this stage)" + suf);
+            s = in.readLine();
+            newUser.setName(s.equals("0")?"":s);
+            do {
+                do {
+                    System.out.println(pre + "password (minimum 6 character)" + suf);
+                    s = in.readLine();
+                    if(s.length() < 6)
+                        System.err.println("The password must to contain minimum 6 characters!" +
+                                "Your password contain only " + s.length() + " symbols.");
+                } while (s.length() < 6);
+                System.out.println("Please, repeat password again" + suf);
+                s2 = in.readLine();
+                if(!s.equals(s2)) break;
+                else System.err.println("Passwords don't match.\n" +
+                        "Please, try again.");
+            } while (true);
+            newUser.setPassword(s);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void chooseAction() {
@@ -140,28 +207,51 @@ public class Console {
 
     private void encrypt() throws IOException {
         System.out.println(SPLIT + menu.name() + SPLIT2);
-        int a = chooseSource();
+        TextSource a = chooseSource();
+        String src = "";
         String key = "";
         String text = "";
         switch (a) {
-            case 1:
-                break;
-            case 2:
+            case NOTE:
+                System.out.println("Enter new note name: ");
+                src = in.readLine();
                 System.out.println("Enter key: ");
-                key = br.readLine();
-                System.out.println("Enter text to operation: ");
-                text = br.readLine();
+                key = in.readLine();
+                System.out.println("Enter text to encryption: ");
+                text = in.readLine();
+                try {
+                    notesDAO.addNote(src, crypto.encrypt(text, key), curUser);
+                } catch (EncryptionException e) {
+                    e.printStackTrace();
+                }
                 break;
-            case 3:
+            case CONSOLE:
+                System.out.println("Enter key to encryption: ");
+                key = in.readLine();
+                System.out.println("Enter text to encryption: ");
+                text = in.readLine();
+                break;
+            case FILE:
+                System.out.println("Enter name with full path of new file\n(example: C:/myFolder/anotherFolder/myFile.txt): ");
+                src = in.readLine();
+                System.out.println("Enter key to encryption: ");
+                key = in.readLine();
+                System.out.println("Enter text to encryption: ");
+                text = in.readLine();
+                try {
+                    fileWorker.write(src, crypto.encrypt(text, key));
+                } catch (EncryptionException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 return;
         }
         try {
             String encText = crypto.encrypt(text, key);
-            System.out.println("Encrypted text: " + encText);
-            System.out.println("Press 'Enter' to continue.");
-            br.readLine();
+            System.out.println("Encrypted text: \n" + encText);
+            System.out.println("\n* Complete! Press 'Enter' to continue. . .");
+            in.readLine();
         } catch (EncryptionException e) {
             e.printStackTrace();
         }
@@ -169,34 +259,42 @@ public class Console {
 
     private void decrypt() throws IOException {
         System.out.println(SPLIT + menu.name() + SPLIT2);
-        int a = chooseSource();
+        TextSource a = chooseSource();
         String key = "";
-        String text = "";
-        switch (a) {
-            case 1:
-                break;
-            case 2:
-                System.out.println("Enter key: ");
-                key = br.readLine();
-                System.out.println("Enter text to operation: ");
-                text = br.readLine();
-                break;
-            case 3:
-                break;
-            default:
-                return;
-        }
+        String src = "";
+        String decText = "";
+        System.out.println("Enter key: ");
+        key = in.readLine();
         try {
-            String decText = crypto.decrypt(text, key);
-            System.out.println("Decrypted text: " + decText);
-            System.out.println("Press 'Enter' to continue.");
-            br.readLine();
+            switch (a) {
+                case NOTE:
+                    System.out.println("Enter note name: ");
+                    src = in.readLine();
+                    decText = crypto.decrypt(notesDAO.getNote(src).getValue(), key);
+                    break;
+                case CONSOLE:
+                    System.out.println("Enter text to operation: ");
+                    src = in.readLine();
+                    decText = crypto.decrypt(src, key);
+                    break;
+                case FILE:
+                    System.out.println("Enter file name with full path (example: C:/myFolder/anotherFolder/myFile.txt): ");
+                    src = in.readLine();
+                    decText = crypto.decrypt(fileWorker.read(src), key);
+                    break;
+                default:
+                    return;
+            }
         } catch (EncryptionException e) {
             e.printStackTrace();
         }
+//            String decText = crypto.decrypt(src, key);
+        System.out.println("Decrypted text: \n" + decText);
+        System.out.println("\n* Complete! Press 'Enter' to continue. . .");
+        in.readLine();
     }
 
-    public int chooseSource() throws IOException {
+    public TextSource chooseSource() throws IOException {
 //        System.out.println(SPLIT + menu.name());
         System.out.println("\n\nChoose source:");
         Stream.of(
@@ -206,8 +304,8 @@ public class Console {
                 "Enter [1]: "
         ).
                 forEach(new Console()::choiceListPrinter);
-//        String way = br.readLine();
-        return getInput(false);
+//        String way = in.readLine();
+        return TextSource.values()[getInput(false) - 1];
     }
 
     private int getInput() {
@@ -218,7 +316,12 @@ public class Console {
         int inputValue = 0;
         boolean correctInput = false;
         while (!correctInput) {
-            String s = scanner.nextLine();
+            String s = null;
+            try {
+                s = in.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             correctInput = true;
             for (int i = 0; i < s.length(); i++)
                 if ((int) s.charAt(i) < 48 || ((int) s.charAt(i)) > 57) {

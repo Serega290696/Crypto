@@ -1,4 +1,4 @@
-package console_interface;
+package console_interface.enumeration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,27 +43,6 @@ public enum Menu {
     }
 
 
-
-    public static Menu getInstance(int a) {
-        switch (a) {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-        }
-        return ACTION_CHOICE;
-    }
-//    public static int getNumber(Menu menuInstance) {
-//        for(int i = 0; i < 10000; i ++) {
-////            (menuInstance == getInstance(i))? return i : return 0;
-//        }
-//    }
 
     public ArrayList<Menu> getSubmenu() {
         return submenu;

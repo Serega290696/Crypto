@@ -1,10 +1,7 @@
 package data_base.entities;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
-import org.hibernate.annotations.NamedQuery;
-
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +10,7 @@ import java.util.Date;
 @Entity
 @Table(name = "users")
 @NamedQuery(name = "User.getAll", query = "SELECT u FROM User u")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -69,6 +66,7 @@ public class User {
         this.registrationDate = registrationDate;
         this.lastVisitDate = lastVisitDate;
     }
+
 
     public long getId() {
         return id;

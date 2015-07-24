@@ -20,6 +20,11 @@ public class UsersDAO {
         manager.merge(user);
         manager.getTransaction().commit();
     }
+    public void signUpUser(User user) {
+        manager.getTransaction().begin();
+        manager.merge(user);
+        manager.getTransaction().commit();
+    }
 
     public User getUser(User user) {
         Optional<User> opt = getAll().

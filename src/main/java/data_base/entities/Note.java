@@ -1,8 +1,7 @@
 package data_base.entities;
 
-import org.hibernate.annotations.NamedQuery;
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Serega on 21.07.2015.
@@ -10,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "notes")
 @NamedQuery(name = "Note.getAll", query = "SELECT n FROM Note n")
-public class Note {
+public class Note implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
