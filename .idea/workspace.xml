@@ -2,47 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b4511e-e041-4c3b-a66e-e059043a801e" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\dataSources.ids" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\dataSources.local.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__asm_asm_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__cglib_cglib_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__commons_collections_commons_collections_3_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__javax_transaction_jta_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__org_hibernate_hibernate_core_4_1_11_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_1_spec_1_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__xml_apis_xml_apis_1_0_b2.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\application.log" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\bulk.log" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\orm.log" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\orm.log.2015-07-24.log" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\AppInterface.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\MainApp.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\Note.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\User.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\console_interface\Console$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\console_interface\Console.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\console_interface\enumeration\Menu.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\console_interface\enumeration\TextSource.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\HibernateUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\data_access_objects\DAOClass.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\data_access_objects\NotesDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\data_access_objects\UsersDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\entities\Note.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\entities\User.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\encryption\CipherWorker.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\encryption\CryptographerExam.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\encryption\ICryptographer.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\encryption\hashing\HashingMD5.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\exceptions\DataBaseException.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\exceptions\EncryptionException.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\exceptions\IncorrectInput.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\file_worker\FileWorker.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\file_worker\IFileWorker.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\hibernate.cfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\log4j.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\test-classes\dbTests\DBTest.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\README.md" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/console_interface/Console.java" afterPath="$PROJECT_DIR$/src/main/java/com/console_interface/Console.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Crypto.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,12 +61,12 @@
       <file leaf-file-name="Console.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/console_interface/Console.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44501278">
-              <caret line="312" column="22" selection-start-line="312" selection-start-column="22" selection-end-line="312" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.5971867">
+              <caret line="304" column="9" selection-start-line="304" selection-start-column="9" selection-end-line="304" selection-end-column="9" />
               <folding>
                 <element signature="method#Console#1;class#Console#0" expanded="false" />
-                <element signature="e#14087#14088#0" expanded="true" />
-                <element signature="e#14124#14125#0" expanded="true" />
+                <element signature="e#14088#14089#0" expanded="true" />
+                <element signature="e#14125#14126#0" expanded="true" />
                 <element signature="method#moveBack#0;class#Console#0" expanded="false" />
                 <element signature="method#choiceListPrinter#0;class#Console#0" expanded="false" />
               </folding>
@@ -1136,7 +1098,7 @@
       <workItem from="1437595726678" duration="1034000" />
       <workItem from="1437675940310" duration="17943000" />
       <workItem from="1437733632509" duration="17183000" />
-      <workItem from="1437776619500" duration="10988000" />
+      <workItem from="1437776619500" duration="11078000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1437487593613</created>
@@ -1264,11 +1226,17 @@
       <option name="project" value="LOCAL" />
       <updated>1437787363082</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="5.1">
+      <created>1437787692441</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1437787692441</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88696000" />
+    <option name="totallyTimeSpent" value="88786000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1281,7 +1249,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1296,7 +1264,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3347548" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3347548" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1820,12 +1788,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/console_interface/Console.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44501278">
-          <caret line="312" column="22" selection-start-line="312" selection-start-column="22" selection-end-line="312" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.5971867">
+          <caret line="304" column="9" selection-start-line="304" selection-start-column="9" selection-end-line="304" selection-end-column="9" />
           <folding>
             <element signature="method#Console#1;class#Console#0" expanded="false" />
-            <element signature="e#14087#14088#0" expanded="true" />
-            <element signature="e#14124#14125#0" expanded="true" />
+            <element signature="e#14088#14089#0" expanded="true" />
+            <element signature="e#14125#14126#0" expanded="true" />
             <element signature="method#moveBack#0;class#Console#0" expanded="false" />
             <element signature="method#choiceListPrinter#0;class#Console#0" expanded="false" />
           </folding>
