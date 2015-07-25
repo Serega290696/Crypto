@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3b4511e-e041-4c3b-a66e-e059043a801e" name="Default" comment="" />
+    <list default="true" id="c3b4511e-e041-4c3b-a66e-e059043a801e" name="Default" comment="">
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\dataSources.ids" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\dataSources.local.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__asm_asm_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__cglib_cglib_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__commons_collections_commons_collections_3_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__javax_transaction_jta_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__org_hibernate_hibernate_core_4_1_11_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_1_spec_1_0_0_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\libraries\Maven__xml_apis_xml_apis_1_0_b2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\.idea\workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\application.log" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\bulk.log" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\orm.log" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\orm.log.2015-07-24.log" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\AppInterface.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\MainApp.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\Note.hbm.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\User.hbm.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\console_interface\Console$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\console_interface\Console.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\console_interface\enumeration\Menu.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\console_interface\enumeration\TextSource.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\HibernateUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\data_access_objects\DAOClass.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\data_access_objects\NotesDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\data_access_objects\UsersDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\entities\Note.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\data_base\entities\User.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\encryption\CipherWorker.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\encryption\CryptographerExam.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\encryption\ICryptographer.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\encryption\hashing\HashingMD5.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\exceptions\DataBaseException.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\exceptions\EncryptionException.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\exceptions\IncorrectInput.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\file_worker\FileWorker.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\com\file_worker\IFileWorker.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\hibernate.cfg.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\classes\log4j.properties" afterPath="" />
+      <change type="DELETED" beforePath="D:\2-Programming\2-Java\NewProjects\Part 3\Big projects\Crypto\target\test-classes\dbTests\DBTest.class" afterPath="" />
+    </list>
     <ignored path="Crypto.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1094,7 +1136,7 @@
       <workItem from="1437595726678" duration="1034000" />
       <workItem from="1437675940310" duration="17943000" />
       <workItem from="1437733632509" duration="17183000" />
-      <workItem from="1437776619500" duration="10764000" />
+      <workItem from="1437776619500" duration="10988000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1437487593613</created>
@@ -1226,7 +1268,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88472000" />
+    <option name="totallyTimeSpent" value="88696000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1736,10 +1778,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="30" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
           <folding>
-            <element signature="e#1679#1680#0" expanded="true" />
-            <element signature="e#1716#1717#0" expanded="true" />
-            <element signature="e#2066#2067#0" expanded="true" />
-            <element signature="e#2119#2120#0" expanded="true" />
+            <element signature="e#1679#1680#0" expanded="false" />
+            <element signature="e#1716#1717#0" expanded="false" />
+            <element signature="e#1939#1940#0" expanded="false" />
+            <element signature="e#2020#2021#0" expanded="false" />
           </folding>
         </state>
       </provider>
