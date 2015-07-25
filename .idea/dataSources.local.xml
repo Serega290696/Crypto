@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - crypto@localhost" uuid="a4f1e095-b7e5-4992-adbf-6450351258c6">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>crypto.*</schema-pattern>
+      <default-schemas>crypto.*</default-schemas>
+    </data-source>
+  </component>
+</project>
