@@ -302,7 +302,7 @@ public class Console implements AppInterface {
         System.out.println("\n* Complete! Press 'Enter' to continue. . .");
         in.readLine();
     }
-//aaaaa
+//aaaaaa
     private void decrypt() throws IOException {
         System.out.println(SPLIT + menu.name() + SPLIT2);
         TextSource inputSource = chooseSource("From console", "From file", "From note");
