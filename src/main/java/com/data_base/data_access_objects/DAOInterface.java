@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Serega on 24.07.2015.
  */
-public interface DAOClass <T> {
+public interface DAOInterface<T> {
 
 
     public boolean add(T ob);

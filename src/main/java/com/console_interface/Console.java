@@ -3,7 +3,7 @@ package com.console_interface;
 import com.AppInterface;
 import com.console_interface.enumeration.Menu;
 import com.console_interface.enumeration.TextSource;
-import com.data_base.data_access_objects.DAOClass;
+import com.data_base.data_access_objects.DAOInterface;
 import com.data_base.data_access_objects.NotesDAO;
 import com.data_base.data_access_objects.UsersDAO;
 import com.data_base.entities.Note;
@@ -36,8 +36,8 @@ public class Console implements AppInterface {
     private HashingMD5 hashing = new HashingMD5();
 
     private IFileWorker fileWorker = new FileWorker();
-    private DAOClass<User> usersDAO = new UsersDAO();
-    private DAOClass<Note> notesDAO = new NotesDAO();
+    private DAOInterface<User> usersDAO = new UsersDAO();
+    private DAOInterface<Note> notesDAO = new NotesDAO();
 
     private static final String SPLIT = "\n============================ ";
     private static final String SPLIT2 = " ============================\n";

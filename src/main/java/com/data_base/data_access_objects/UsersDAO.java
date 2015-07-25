@@ -2,18 +2,15 @@ package com.data_base.data_access_objects;
 
 import com.data_base.HibernateUtil;
 import com.data_base.entities.User;
-import com.exceptions.DataBaseException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by Serega on 19.07.2015.
  */
-public class UsersDAO implements DAOClass<User> {
+public class UsersDAO implements DAOInterface<User> {
 
     Session session = HibernateUtil.getSessionFactory().openSession();
 

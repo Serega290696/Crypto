@@ -2,17 +2,14 @@ package com.data_base.data_access_objects;
 
 import com.data_base.HibernateUtil;
 import com.data_base.entities.Note;
-import com.data_base.entities.User;
-import org.hibernate.Query;
 import org.hibernate.Session;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Serega on 19.07.2015.
  */
-public class NotesDAO implements DAOClass<Note> {
+public class NotesDAO implements DAOInterface<Note> {
 
     Session session = HibernateUtil.getSessionFactory().openSession();
 
