@@ -1,5 +1,6 @@
 package com.data_base.entities;
 
+import com.data_base.data_access_objects.NotesDAO;
 import com.encryption.hashing.HashingMD5;
 
 import javax.persistence.*;
@@ -74,7 +75,7 @@ public class User implements Serializable {
         this.login = login;
         this.mail = mail;
         this.name = name;
-        this.password = password;
+        this.password = hashing.toHashCode(password);
         this.maxNotes = maxNotes;
         this.maxNoteLength = maxNoteLength;
         this.registrationDate = registrationDate;
@@ -135,6 +136,9 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
+        this.password = password;
+    }
+    public void setPasswordToMD5(String password) {
         this.password = hashing.toHashCode(password);
     }
 
@@ -170,4 +174,10 @@ public class User implements Serializable {
     }
 
 
+    public boolean canCreateNote(String noteText) {
+        NotesDAO notesDAO = new NotesDAO();
+        if(notesDAO.getAll().stream().filter((n)->n.getIdUser()==getId()).count() > maxNotes) return false;
+        if(noteText.length() > maxNoteLength) return false;
+        return true;
+    }
 }

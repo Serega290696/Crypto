@@ -5,9 +5,10 @@ package com.console_interface.enumeration;
  */
 public enum TextSource {
 
-    NOTE,
+    BACK,
     CONSOLE,
     FILE,
+    NOTE,
     ;
 
 }

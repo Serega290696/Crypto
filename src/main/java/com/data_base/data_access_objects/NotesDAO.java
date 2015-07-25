@@ -39,18 +39,13 @@ public class NotesDAO implements DAOClass<Note> {
     }
 
     public Note get(Note note) {
-        Note returnedNote = null;
         for (Note n : getAll()) {
-            if (n.getIdUser() == (note.getIdUser()))
-                if (n.getTitle().equals(note.getTitle())) {
-                    returnedNote = n;
-                    break;
-                } else {
-                    returnedNote = null;
-                    break;
-                }
+            if (n.getIdUser() == (note.getIdUser()) && n.getTitle().equals(note.getTitle())) {
+                return n;
+            }
+            else System.out.println(n.getIdUser() +"   "+ (note.getIdUser()) +"   "+ n.getTitle()+"   "+(note.getTitle()));
         }
-        return returnedNote;
+        return null;
     }
 
     @Override

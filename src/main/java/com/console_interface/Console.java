@@ -76,9 +76,9 @@ public class Console implements AppInterface {
                     case ACTION_CHOICE:
                         chooseAction();
                         break;
-                    case SOURCE_CHOICE:
-                        chooseSource();
-                        break;
+//                    case SOURCE_CHOICE:
+//                        chooseSource();
+//                        break;
 
                     case SIGN_IN:
                         signIn();
@@ -111,7 +111,8 @@ public class Console implements AppInterface {
 
     public void greetings() {
         System.out.println(SPLIT + menu.name() + SPLIT2);
-        System.out.println("Hello" + ((curUser != null) ? ", " + curUser.getName() : "") + "!");
+        curUser = null;
+        System.out.println("Hello" + ((curUser != null) ? ((curUser.getName()!=null)?", "+curUser.getName():"") : "") + "!");
 
         if (curUser == null) {
             Stream.of(
@@ -196,9 +197,11 @@ public class Console implements AppInterface {
                 else System.err.println("Passwords don't match.\n" +
                         "Please, try again.");
             } while (true);
-            System.out.println("REMEMBER YOUR PASSWORD: " + s);
-            newUser.setPassword(s);
+            newUser.setPasswordToMD5(s);
             usersDAO.add(newUser);
+            System.out.println("REMEMBER YOUR PASSWORD: " + s);
+            System.out.println("pass in DB: " + usersDAO.get(newUser).getPassword());
+            System.out.println("input pass to hash: " + hashing.toHashCode(s2));
             System.out.println("Registration finished successfully!");
             menu = Menu.ACTION_CHOICE;
         } catch (IOException e) {
@@ -208,6 +211,7 @@ public class Console implements AppInterface {
 
     public void chooseAction() {
         System.out.println(SPLIT + menu.name() + SPLIT2);
+        System.out.println("Hello" + ((curUser != null) ? ", " + curUser.getName() : "") + "!");
         Stream.of(
                 "Encrypt something",
                 "Decrypt something",
@@ -221,39 +225,40 @@ public class Console implements AppInterface {
 
     private void encrypt() throws IOException {
         System.out.println(SPLIT + menu.name() + SPLIT2);
-        TextSource a = chooseSource();
+        TextSource input = chooseSource("From console", "From file");
         String src = "";
+        String textToEncryption = "";
         String key = "";
-        String text = "";
-        switch (a) {
-            case NOTE:
-                System.out.println("Enter new note name: ");
-                src = in.readLine();
-                System.out.println("Enter key: ");
-                key = in.readLine();
-                System.out.println("Enter text to com.encryption: ");
-                text = in.readLine();
-                try {
-                    notesDAO.add(new Note(src, crypto.encrypt(text, key), curUser.getId()));
-                } catch (EncryptionException e) {
-                    e.printStackTrace();
-                }
-                break;
+        switch (input) {
+            case BACK:
+                menu = Menu.ACTION_CHOICE;
+                return;
+//            case NOTE:
+//                System.out.println("Enter note name: ");
+//                src = in.readLine();
+//                textToEncryption = notesDAO.get(new Note(src)).getValue();
+//                System.out.println("Enter key: ");
+//                key = in.readLine();
+//                try {
+//                    notesDAO.add(new Note(src, crypto.encrypt(textToEncryption, key), curUser.getId()));
+//                } catch (EncryptionException e) {
+//                    e.printStackTrace();
+//                }
+//                break;
             case CONSOLE:
-                System.out.println("Enter key to com.encryption: ");
+                System.out.println("Enter text to encryption: ");
+                textToEncryption = in.readLine();
+                System.out.println("Enter key to encryption: ");
                 key = in.readLine();
-                System.out.println("Enter text to com.encryption: ");
-                text = in.readLine();
                 break;
             case FILE:
                 System.out.println("Enter name with full path of new file\n(example: C:/myFolder/anotherFolder/myFile.txt): ");
                 src = in.readLine();
-                System.out.println("Enter key to com.encryption: ");
+                textToEncryption = fileWorker.read(src);
+                System.out.println("Enter key to encryption: ");
                 key = in.readLine();
-                System.out.println("Enter text to com.encryption: ");
-                text = in.readLine();
                 try {
-                    fileWorker.write(src, crypto.encrypt(text, key));
+                    fileWorker.write(src, crypto.encrypt(textToEncryption, key));
                 } catch (EncryptionException e) {
                     e.printStackTrace();
                 }
@@ -261,65 +266,114 @@ public class Console implements AppInterface {
             default:
                 return;
         }
+        TextSource output = chooseSource("To console", "To file", "To note");
+        String encryptedText = "";
         try {
-            String encText = crypto.encrypt(text, key);
-            System.out.println("Encrypted text: \n" + encText);
-            System.out.println("\n* Complete! Press 'Enter' to continue. . .");
-            in.readLine();
+            encryptedText = crypto.encrypt(textToEncryption, key);
         } catch (EncryptionException e) {
             e.printStackTrace();
         }
-    }
-
-    private void decrypt() throws IOException {
-        System.out.println(SPLIT + menu.name() + SPLIT2);
-        TextSource a = chooseSource();
-        String key = "";
-        String src = "";
-        String decText = "";
-        System.out.println("Enter key: ");
-        key = in.readLine();
-        try {
-            switch (a) {
-                case NOTE:
-                    System.out.println("Enter note name: ");
+        switch (output) {
+            case BACK:
+                menu = Menu.ACTION_CHOICE;
+                return;
+            case CONSOLE:
+                System.out.println("Encrypted text: ");
+                System.out.println(encryptedText);
+                break;
+            case FILE:
+                System.out.println("Enter name with full path of new file\n(example: C:/myFolder/anotherFolder/myFile.txt): ");
+                src = in.readLine();
+                fileWorker.write(src, encryptedText);
+                break;
+            case NOTE:
+                if(curUser.canCreateNote(textToEncryption)) {
+                    System.out.println("Enter new note name: ");
                     src = in.readLine();
-                    decText = crypto.decrypt(notesDAO.get(new Note(src)).getValue(), key);
-                    break;
-                case CONSOLE:
-                    System.out.println("Enter text to operation: ");
-                    src = in.readLine();
-                    decText = crypto.decrypt(src, key);
-                    break;
-                case FILE:
-                    System.out.println("Enter file name with full path (example: C:/myFolder/anotherFolder/myFile.txt): ");
-                    src = in.readLine();
-                    decText = crypto.decrypt(fileWorker.read(src), key);
-                    break;
-                default:
-                    return;
-            }
-        } catch (EncryptionException e) {
-            e.printStackTrace();
+                    notesDAO.add(new Note(src, encryptedText, curUser.getId()));
+                }
+                else
+                    System.err.println("You version of program is limited.\n" +
+                            "You can't to create new note or length of note more than " + curUser.getMaxNoteLength());
+                break;
+            default:
+                return;
         }
-//            String decText = crypto.decrypt(src, key);
-        System.out.println("Decrypted text: \n" + decText);
         System.out.println("\n* Complete! Press 'Enter' to continue. . .");
         in.readLine();
     }
 
-    public TextSource chooseSource() throws IOException {
+    private void decrypt() throws IOException {
+        System.out.println(SPLIT + menu.name() + SPLIT2);
+        TextSource inputSource = chooseSource("From console", "From file", "From note");
+        String src = "";
+        String textToDecryption = "";
+        String key = "";
+        switch (inputSource) {
+            case BACK:
+                menu = Menu.ACTION_CHOICE;
+                return;
+            case CONSOLE:
+                System.out.println("Enter text to operation: ");
+                textToDecryption = in.readLine();
+                break;
+            case FILE:
+                System.out.println("Enter file name with full path (example: C:/myFolder/anotherFolder/myFile.txt): ");
+                src = in.readLine();
+                textToDecryption = fileWorker.read(src);
+                break;
+            case NOTE:
+                System.out.println("Enter note name: ");
+                src = in.readLine();
+                textToDecryption = notesDAO.get(new Note(src, "", curUser.getId())).getValue();
+                break;
+            default:
+                return;
+        }
+        System.out.println("Enter key: ");
+        key = in.readLine();
+        String decryptedText = "";
+        try {
+            decryptedText = crypto.decrypt(textToDecryption, key);
+        } catch (EncryptionException e) {
+            e.printStackTrace();
+        }
+        TextSource output = chooseSource("To console", "To file");
+        switch (output) {
+            case BACK:
+                menu = Menu.ACTION_CHOICE;
+                return;
+            case CONSOLE:
+                System.out.println("Encrypted text: ");
+                System.out.println(decryptedText);
+                break;
+            case FILE:
+                System.out.println("Enter name with full path of new file\n(example: C:/myFolder/anotherFolder/myFile.txt): ");
+                src = in.readLine();
+                fileWorker.write(src, decryptedText);
+                break;
+//            case NOTE:
+//                System.out.println("Enter new note name: ");
+//                src = in.readLine();
+//                notesDAO.add(new Note(src, decryptedText, curUser.getId()));
+//                break;
+            default:
+                return;
+        }
+        System.out.println("\n* Complete! Press 'Enter' to continue. . .");
+        in.readLine();
+    }
+
+    public TextSource chooseSource(String ... actions) throws IOException {
 //        System.out.println(SPLIT + menu.name());
         System.out.println("\n\nChoose source:");
-        Stream.of(
-                "From saved notes",
-                "Input in console",
-                "From file",
-                "Enter [1]: "
-        ).
-                forEach(new Console()::choiceListPrinter);
+        System.out.println("0. Back.");
+        Console consT = new Console();
+        for(String s : actions) {
+            consT.choiceListPrinter(s);
+        }
 //        String way = in.readLine();
-        return TextSource.values()[getInput(false) - 1];
+        return TextSource.values()[getInput(false)];
     }
 
     private int getInput() {

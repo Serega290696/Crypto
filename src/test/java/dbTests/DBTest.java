@@ -1,6 +1,7 @@
 package dbTests;
 
 import com.data_base.HibernateUtil;
+import com.data_base.data_access_objects.NotesDAO;
 import com.data_base.data_access_objects.UsersDAO;
 import com.data_base.entities.Note;
 import com.data_base.entities.User;
@@ -16,7 +17,7 @@ import java.util.Date;
 public class DBTest extends Assert {
 
 
-//    private final NotesDAO notesDao = new NotesDAO();
+    private final NotesDAO notesDao = new NotesDAO();
     private final UsersDAO usersDao = new UsersDAO();
 
     Session session = HibernateUtil.getSessionFactory().openSession();
@@ -75,6 +76,10 @@ public class DBTest extends Assert {
     @Test
     public void testGetUser() {
         System.out.println(usersDao.get(new User("Serega", "qwerty123")));
+    }
+    @Test
+    public void testGetAllNotes() {
+        System.out.println(notesDao.getAll());
     }
 
     //    @Test

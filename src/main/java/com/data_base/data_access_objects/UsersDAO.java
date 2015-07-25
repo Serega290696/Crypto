@@ -44,7 +44,9 @@ public class UsersDAO implements DAOClass<User> {
         User returnedUser = null;
         for (User u : getAll()) {
             if (u.getLogin().equals(user.getLogin())) {
+                System.out.println(u);
                 System.out.println(u.getPassword());
+                System.out.println(user);
                 System.out.println(user.getPassword());
                 if (u.getPassword().equals(user.getPassword())) {
                     returnedUser = u;
