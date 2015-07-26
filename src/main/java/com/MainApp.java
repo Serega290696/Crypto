@@ -1,6 +1,7 @@
 package com;
 
 import com.console_interface.Console;
+import com.data_base.HibernateUtil;
 import com.data_base.entities.User;
 
 /**
@@ -18,7 +19,7 @@ public class MainApp {
 
         appInterface.launch();
 
-
+        HibernateUtil.shutdown();
 //
 //        String str = "12345678 2345678 2345678 2345678";
 //        ArrayList<byte[]> list = new ArrayList<byte[]>();
