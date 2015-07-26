@@ -30,4 +30,4 @@ You can come up with different keys.
 2. ...
 
 ## UML-diagram
-![UML-diagram](https://github.com/Serega290696/Game-Photon/blob/master/UML%20cd.png?raw=true)
+![UML-diagram](https://github.com/Serega290696/Crypto/blob/master/uml-diagram.png?raw=true)
