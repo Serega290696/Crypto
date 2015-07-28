@@ -12,7 +12,7 @@ public class MainApp {
 
     static final User curUser = null;
     private static AppInterface appInterface = new Console(curUser);
-
+//    private static final Logger logger = Logger.getLogger("");
 
     public static void main(String[] args) {
 

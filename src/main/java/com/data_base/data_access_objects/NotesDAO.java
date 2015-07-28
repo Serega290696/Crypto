@@ -2,6 +2,7 @@ package com.data_base.data_access_objects;
 
 import com.data_base.HibernateUtil;
 import com.data_base.entities.Note;
+import com.data_base.entities.User;
 import org.hibernate.Session;
 
 import java.util.List;
@@ -17,8 +18,7 @@ public class NotesDAO implements DAOInterface<Note> {
         boolean noteAlreadyExist =
                 getAll()
                         .stream()
-                        .filter((n) -> (n.getIdUser() == (newNote.getIdUser())))
-                        .filter((n) -> (n.getTitle().equals(newNote.getTitle())))
+                        .filter((n) -> newNote.compareTo(n)==0)
                         .count() > 0 ? true : false;
 
         if (noteAlreadyExist) {
@@ -37,11 +37,11 @@ public class NotesDAO implements DAOInterface<Note> {
 
     public Note get(Note note) {
         for (Note n : getAll()) {
-            if (n.getIdUser() == (note.getIdUser()) && n.getTitle().equals(note.getTitle())) {
+            if (note.compareTo(n) == 0) {
                 return n;
             }
-            else System.out.println(n.getIdUser() +"   "+ (note.getIdUser()) +"   "+ n.getTitle()+"   "+(note.getTitle()));
         }
+        System.out.println("Note don't found");
         return null;
     }
 
@@ -57,6 +57,7 @@ public class NotesDAO implements DAOInterface<Note> {
 
 
     public void remove(Note note) {
+        note = get(note);
         session.beginTransaction();
         session.delete(note);
         session.flush();
@@ -64,6 +65,9 @@ public class NotesDAO implements DAOInterface<Note> {
     }
 
     public void update(Note note) {
+        System.out.println(note);
+        note.setId(get(note).getId());
+        System.out.println(note);
         session.beginTransaction();
         session.merge(note);
         session.getTransaction().commit();

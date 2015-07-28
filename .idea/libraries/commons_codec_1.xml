@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="commons-codec-1">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/ecnrjars/commons-codec-1.10" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/ecnrjars/commons-codec-1.10/apidocs" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/ecnrjars/commons-codec-1.10" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/ecnrjars/commons-codec-1.10" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/ecnrjars/commons-codec-1.10" recursive="false" type="SOURCES" />
+  </library>
+</component>
