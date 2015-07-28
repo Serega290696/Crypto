@@ -10,6 +10,7 @@ import java.security.NoSuchAlgorithmException;
 public class HashingMD5 {
 //za
     public String toHashCode(String st) {
+        if (st == null) st = "";
         MessageDigest messageDigest = null;
         byte[] digest = new byte[0];
 

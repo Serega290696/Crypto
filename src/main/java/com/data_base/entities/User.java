@@ -13,7 +13,7 @@ import java.util.Date;
 @Entity
 @Table(name = "users")
 @NamedQuery(name = "User.getAll", query = "SELECT u FROM User u")
-public class User implements Serializable {
+public class User implements Serializable, Comparable<User> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -179,5 +179,13 @@ public class User implements Serializable {
         if(notesDAO.getAll().stream().filter((n)->n.getIdUser()==getId()).count() > maxNotes) return false;
         if(noteText.length() > maxNoteLength) return false;
         return true;
+    }
+
+    @Override
+    public int compareTo(User u) {
+        if(this.getLogin().equals(u.getLogin())
+                && this.getPassword().equals(u.getPassword()))
+            return 0;
+        return 1;
     }
 }

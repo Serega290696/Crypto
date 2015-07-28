@@ -14,20 +14,16 @@ import com.exceptions.EncryptionException;
 import com.exceptions.IncorrectInput;
 import com.file_worker.FileWorker;
 import com.file_worker.IFileWorker;
+import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.logging.Logger;
 import java.util.stream.Stream;
 
-/**
- * Created by Serega on 22.07.2015.
- */
 public class Console implements AppInterface {
 
-    private static final Logger log = Logger.getLogger("file");
-    private static final Logger log2 = Logger.getLogger("ConsoleAppender");
+    private static final Logger logger = Logger.getLogger("logConsoleDebugging");
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     private User curUser = null;
     private Menu menu = Menu.GREETINGS;
@@ -58,6 +54,7 @@ public class Console implements AppInterface {
     }
 
     public void launch() {
+        logger.info("Console interface launched!");
 //        log.info("Console interface launched");
 //        log.t("Some errors!");
 //        Stream.of(
@@ -69,6 +66,10 @@ public class Console implements AppInterface {
 
         try {
             while (!isExit) {
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Current user: " + curUser + ". ");
+                    logger.debug("In \"" + menu + "\"");
+                }
                 switch (menu) {
                     case GREETINGS:
                         greetings();
@@ -77,7 +78,7 @@ public class Console implements AppInterface {
                         chooseAction();
                         break;
 //                    case SOURCE_CHOICE:
-//                        chooseSource();
+//                    chooseSource();
 //                        break;
 
                     case SIGN_IN:
@@ -112,7 +113,7 @@ public class Console implements AppInterface {
     public void greetings() {
         System.out.println(SPLIT + menu.name() + SPLIT2);
         curUser = null;
-        System.out.println("Hello" + ((curUser != null) ? ((curUser.getName()!=null)?", "+curUser.getName():"") : "") + "!");
+        System.out.println("Hello" + ((curUser != null) ? ((curUser.getName() != null) ? ", " + curUser.getName() : "") : "") + "!");
 
         if (curUser == null) {
             Stream.of(
@@ -222,7 +223,6 @@ public class Console implements AppInterface {
         getInput();
     }
 
-
     private void encrypt() throws IOException {
         System.out.println(SPLIT + menu.name() + SPLIT2);
         TextSource input = chooseSource("From console", "From file");
@@ -252,7 +252,7 @@ public class Console implements AppInterface {
                 key = in.readLine();
                 break;
             case FILE:
-                System.out.println("Enter name with full path of new file\n(example: C:/myFolder/anotherFolder/myFile.txt): ");
+                System.out.println("Enter name with full path of new file\n(example: C:\\myFolder\\anotherFolder\\myFile.txt): ");
                 src = in.readLine();
                 textToEncryption = fileWorker.read(src);
                 System.out.println("Enter key to encryption: ");
@@ -287,12 +287,11 @@ public class Console implements AppInterface {
                 fileWorker.write(src, encryptedText);
                 break;
             case NOTE:
-                if(curUser.canCreateNote(textToEncryption)) {
+                if (curUser.canCreateNote(textToEncryption)) {
                     System.out.println("Enter new note name: ");
                     src = in.readLine();
                     notesDAO.add(new Note(src, encryptedText, curUser.getId()));
-                }
-                else
+                } else
                     System.err.println("You version of program is limited.\n" +
                             "You can't to create new note or length of note more than " + curUser.getMaxNoteLength());
                 break;
@@ -302,7 +301,7 @@ public class Console implements AppInterface {
         System.out.println("\n* Complete! Press 'Enter' to continue. . .");
         in.readLine();
     }
-//aaaaaaa
+
     private void decrypt() throws IOException {
         System.out.println(SPLIT + menu.name() + SPLIT2);
         TextSource inputSource = chooseSource("From console", "From file", "From note");
@@ -364,12 +363,14 @@ public class Console implements AppInterface {
         in.readLine();
     }
 
-    public TextSource chooseSource(String ... actions) throws IOException {
+    public TextSource chooseSource(String... actions) throws IOException {
+        if (logger.isTraceEnabled())
+            logger.trace("In \"Source choose\"");
 //        System.out.println(SPLIT + menu.name());
         System.out.println("\n\nChoose source:");
         System.out.println("0. Back.");
         Console consT = new Console();
-        for(String s : actions) {
+        for (String s : actions) {
             consT.choiceListPrinter(s);
         }
 //        String way = in.readLine();
@@ -381,6 +382,8 @@ public class Console implements AppInterface {
     }
 
     private int getInput(boolean goToNextMenu) {
+        if (logger.isTraceEnabled())
+            logger.trace("In \"Get input\"");
         int inputValue = 0;
         boolean correctInput = false;
         while (!correctInput) {
@@ -424,6 +427,8 @@ public class Console implements AppInterface {
     }
 
     private void moveBack() {
+        if (logger.isTraceEnabled())
+            logger.trace("In \"Move back\"");
         System.out.println("\n<- Back");
         for (Menu m : Menu.values()) {
             if (m.getSubmenu().contains(menu)) {

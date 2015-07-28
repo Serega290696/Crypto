@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "notes")
 @NamedQuery(name = "Note.getAll", query = "SELECT n FROM Note n")
-public class Note implements Serializable {
+public class Note implements Serializable, Comparable<Note> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,18 +26,18 @@ public class Note implements Serializable {
 
 
     public Note() {
-        this.title = "Note";
+        this.title = "Note"+ Math.round(Math.random()*1000);
         this.value = "Random text: " + Math.round(Math.random()*1000000);
-        idUser = 18;
+        idUser = 1;
 //        UsersDAO usersDAO = new UsersDAO();
 //        List<User> allUsers = usersDAO.getAll();
 //        this.idUser =
 //                allUsers.get((int) Math.round(Math.random() * allUsers.size())).getId();
     }
-    public Note(String title) {
+    public Note(String title, long idUser) {
         this.title = title;
         this.value = "Random text: " + Math.round(Math.random()*1000000);
-        idUser = 18;
+        this.idUser = idUser;
     }
 
     public Note(String title, String value, long idUser) {
@@ -86,5 +86,12 @@ public class Note implements Serializable {
                 ", value='" + value + '\'' +
                 ", idUser=" + idUser +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Note note) {
+        if(note.getIdUser() == this.getIdUser() && note.getTitle().equals(this.getTitle()))
+            return 0;
+        return 1;
     }
 }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+
+    <appender name="commonSysLogs" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/app.log"/>
+        <param name="MaxFileSize" value="2MB"/>
+        <param name="MaxBackupIndex" value="3"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601}   [%8.8p]  [%30.30c{-2}] - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="fileDBManipulations" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/DBManipulations.log"/>
+        <param name="MaxFileSize" value="2MB"/>
+        <param name="MaxBackupIndex" value="3"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%6.6p][%15.15c{-2}] - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="fileConsoleDebugging" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/console.log"/>
+        <param name="MaxFileSize" value="2MB"/>
+        <param name="MaxBackupIndex" value="3"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%6.6p][%16.16c{-2}] - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="fileFileWorker" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/file_worker.log"/>
+        <param name="MaxFileSize" value="2MB"/>
+        <param name="MaxBackupIndex" value="3"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%6.6p][%16.16c{-2}] - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="fileEncryption" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/encryption.log"/>
+        <param name="MaxFileSize" value="2MB"/>
+        <param name="MaxBackupIndex" value="3"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%6.6p][%16.16c{-2}] - %m%n"/>
+        </layout>
+    </appender>
+
+
+    <appender name="ConsoleAppender0" class="org.apache.log4j.ConsoleAppender">
+        <param name="Encoding" value="Cp866"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%n[ %m ] %l %n"/>
+        </layout>
+    </appender>
+
+    <logger name="logDBManipulation" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="fileDBManipulations"/>
+    </logger>
+    <logger name="logConsoleDebugging" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="fileConsoleDebugging"/>
+    </logger>
+    <logger name="logFileWorker" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="fileFileWorker"/>
+    </logger>
+    <logger name="logEncryption" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="fileEncryption"/>
+    </logger>
+
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="commonSysLogs"/>
+    </root>
+
+</log4j:configuration>
