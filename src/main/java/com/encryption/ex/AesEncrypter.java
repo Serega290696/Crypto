@@ -1,4 +1,4 @@
-package com.encryption;
+package com.encryption.ex;
 
 /**
  * Created by Вова on 26.07.2015.

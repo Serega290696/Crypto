@@ -399,14 +399,15 @@ public class Console implements AppInterface {
                     correctInput = false;
                     break;
                 }
-            if (correctInput && s.length() <= 4)
+            if (correctInput && s.length() == 0)
+                inputValue = Integer.parseInt("1");
+            else if (correctInput && s.length() <= 4)
                 inputValue = Integer.parseInt(s);
             else {
                 correctInput = false;
                 try {
-                    throw new IncorrectInput("But you enter text or too long number!");
+                    throw new IncorrectInput("You enter text or too long number!");
                 } catch (IncorrectInput incorrectInput) {
-                    incorrectInput.printStackTrace();
                 }
                 continue;
             }
@@ -420,7 +421,7 @@ public class Console implements AppInterface {
                     correctInput = false;
                     throw new IncorrectInput();
                 } catch (IncorrectInput incorrectInput) {
-                    incorrectInput.printStackTrace();
+                    logger.error("in line 424. Input value is out of range!");
                 }
         }
         return inputValue;

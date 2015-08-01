@@ -1,4 +1,4 @@
-package com.encryption;
+package com.encryption.ex;
 
 import com.file_worker.FileWorker;
 import com.file_worker.IFileWorker;

@@ -19,6 +19,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/data_base_2/entities" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/encryption/ex" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/deleted" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/resources/old" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/resources/old/META-INF" />
