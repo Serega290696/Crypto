@@ -1,4 +1,4 @@
-import com.encryption.DesEncrypter;
+import com.encryption.ex.DesEncrypter;
 import org.junit.Assert;
 import org.junit.Test;
 

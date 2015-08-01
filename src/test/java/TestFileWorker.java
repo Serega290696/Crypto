@@ -24,5 +24,4 @@ public class TestFileWorker extends Assert {
         System.out.println(res);
         Assert.assertEquals("Something go wrong!", textToWrite, res);
     }
-
 }
