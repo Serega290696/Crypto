@@ -24,7 +24,7 @@ import java.util.stream.Stream;
 public class Console implements AppInterface {
 
     private static final Logger logger = Logger.getLogger("logConsoleDebugging");
-    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+    private BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     private User curUser = null;
     private Menu menu = Menu.GREETINGS;
 

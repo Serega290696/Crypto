@@ -5,7 +5,7 @@ package com.exceptions;
  */
 public class EncryptionException extends Exception {
     public EncryptionException(String message) {
-        System.err.println("Exception during com.encryption! " + message);
+        System.err.println("Exception during com.encryption!\n" + message);
     }
 
     public EncryptionException() {

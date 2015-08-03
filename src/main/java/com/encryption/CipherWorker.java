@@ -13,7 +13,7 @@ public class CipherWorker {
     private String key = "";
     private String text = "";
 
-    private ICryptographer crypto = new CryptographerExam();
+    private ICryptographer crypto = new DesEncrypter();
 
     public CipherWorker() {
     }

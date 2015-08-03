@@ -10,6 +10,6 @@ public class MyFrame2 extends JFrame {
 
     public MyFrame2() {
 
-
+//a
     }
 }
