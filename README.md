@@ -26,7 +26,8 @@ You can come up with different keys.
 * agile(youTrack, Jira)
 * design patterns
 
-##How to install application
+##Installation for developpers
+###5 minutes installation
 1. Clone, fork or download the source code from this Github page.
 2. Install Mysql-server.
 3. Create database from file: `source database.sql`.
