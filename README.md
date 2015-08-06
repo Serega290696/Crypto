@@ -15,19 +15,25 @@ You can come up with different keys.
 
 ##Skill used
 * Java8 SE
-* Hibernate (JPA),
+* Hibernate (JPA)
 * MySQL
+* JavaFx
 * JUnit
 * Log4j
 * git
-* agile(youTrack, Jira)
 * MD5 hashing
-* DES encryption
+* DES, AES encryption
+* agile(youTrack, Jira)
 * design patterns
 
 ##How to install application
-1. ...
-2. ...
+1. Clone, fork or download the source code from this Github page.
+2. Install Mysql-server.
+3. Create database from file: `source database.sql`.
+
+And after choose one of 2 ways:
+* (cosole version) Launch file in project's folder: `Crypto\out\artifacts\Crypto_console_jar\LAUNCH.bat`.
+* (javaFx interface) Launch file: `...`.
 
 ## UML-diagram
 ![UML-diagram](https://github.com/Serega290696/Crypto/blob/master/uml-diagram.png?raw=true)
