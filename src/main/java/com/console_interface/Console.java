@@ -41,19 +41,27 @@ public class Console implements AppInterface {
     private int curStringNumber = 1;
     private boolean isExit = false;
     private int inputValue;
+    private static Console consoleInstance = new Console();
 
-    public Console() {
-        this(null);
-//        log.info("In console constructor");
-//        log2.info("In console constructor");
+    private Console() {
+//        this(null);
     }
 
-    public Console(User curUser) {
-        this.curUser = curUser;
-        isExit = false; // на всякий случай ;)
+    public static Console getConsole(User curUser) {
+        consoleInstance.curUser = curUser;
+        return consoleInstance;
+    }
+    public static Console getConsole() {
+        consoleInstance.curUser = null;
+        return consoleInstance;
     }
 
-    public void launch() {
+//    private Console(User curUser) {
+//        this.curUser = curUser;
+//        isExit = false; // на всякий случай ;)
+//    }
+
+    public void launchApp() {
         logger.info("Console interface launched!");
 //        log.info("Console interface launched");
 //        log.t("Some errors!");

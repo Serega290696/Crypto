@@ -11,13 +11,13 @@ public class MainApp {
 
 
     static final User curUser = null;
-    private static AppInterface appInterface = new Console(curUser);
+    private static AppInterface appInterface = Console.getConsole(curUser);
 //    private static final Logger logger = Logger.getLogger("");
 
     public static void main(String[] args) {
 
 
-        appInterface.launch();
+        appInterface.launchApp();
 
         HibernateUtil.shutdown();
 

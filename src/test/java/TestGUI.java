@@ -1,3 +1,4 @@
+import com.java_fx_interface.JavaFxApp;
 import com.swing_interface.MyFrame;
 import org.junit.Test;
 
@@ -9,13 +10,24 @@ public class TestGUI {
     @Test
     public void testGui() {
         MyFrame m = new MyFrame();
-        m.launch();
+        m.launchApp();
         try {
             Thread.sleep(15000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//        m.launch();
+//        m.launchApp();
+    }
+    @Test
+    public void testJavaFx() {
+        JavaFxApp jfx = new JavaFxApp();
+        jfx.launchApp();
+//        try {
+//            Thread.sleep(15000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+////        m.launchApp();
     }
 
 }

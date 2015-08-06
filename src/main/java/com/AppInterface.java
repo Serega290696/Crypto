@@ -5,6 +5,6 @@ package com;
  */
 public interface AppInterface {
 
-    public void launch();
+    public void launchApp();
 
 }
