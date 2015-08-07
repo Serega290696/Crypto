@@ -9,6 +9,11 @@ You can encrypt messages, files, other information and save them on your compute
 You need only sign up and to come up with the key. This key could decrypt your encrypted data. 
 You can come up with different keys.
 
+
+##Описание
+Crypro-программа,с помощью которой Вы сможете зашифровать сообщение,файл,любой иной текст,который вам нужно будет защитить от посторонних глазю Данная программ предоставляет возможность шифровать и дешифровать обьекты по заведомо известным ключам.В Crypto изпользуются одни из самых популярных алгоритмов шифрования,котороые ,на сегодняшний момент,смогут защитить ценну для вас информацию.
+
+
 ##Autors
 1. Beltser Sergey.
 2. Bondarenko Vladimir.
