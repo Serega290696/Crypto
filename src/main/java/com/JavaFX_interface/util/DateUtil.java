@@ -1,4 +1,4 @@
-package crypto.util;
+package com.JavaFX_interface.util;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -10,7 +10,8 @@ public class DateUtil {
 
 	private static final String DATE_PATTERN = "dd.MM.yyyy";
     
-	private static final DateTimeFormatter DATE_FORMATTER = 
+	private static final DateTimeFormatter DATE_FORMATTER =
+            DateTimeFormatter.ofPattern(DATE_PATTERN);
 	
     public static String format(LocalDate date) {
         if (date == null) {
