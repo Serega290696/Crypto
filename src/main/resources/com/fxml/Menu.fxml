@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.TextFlow?>
+<TabPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+         minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/8" fx:controller="com.JavaFX_interface.view.MenuController">
+    <tabs>
+        <Tab text="ENCRYPT">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TextFlow layoutX="22.0" layoutY="270.0" prefHeight="250.0" prefWidth="550.0"
+                                  style="-fx-border-radius: 13; -fx-border-color: gray; -fx-border-width: 3;"
+                                  AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="277.0">
+                            <cursor>
+                                <Cursor fx:constant="TEXT"/>
+                            </cursor>
+                        </TextFlow>
+                        <Button layoutX="603.0" layoutY="496.0" mnemonicParsing="false" prefHeight="30.0"
+                                prefWidth="100.0" text="Save " AnchorPane.rightAnchor="235.0"/>
+                        <Button layoutX="802.0" layoutY="496.0" mnemonicParsing="false" prefHeight="30.0"
+                                prefWidth="110.0" text="Enter"/>
+                        <ChoiceBox fx:id="choiceBox" layoutX="615.0" layoutY="88.0" prefHeight="31.0" prefWidth="297.0"
+                                   AnchorPane.bottomAnchor="446.0" AnchorPane.rightAnchor="38.0"
+                                   AnchorPane.topAnchor="86.0">
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Use 1 method"/>
+                                        <MenuItem mnemonicParsing="false" text="Use 2 method"/>
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </ChoiceBox>
+                        <TextArea layoutX="552.0" layoutY="93.0" prefHeight="250.0" prefWidth="550.0"
+                                  promptText="Enter rext "
+                                  style="-fx-border-color: gray; -fx-border-radius: 13; -fx-border-width: 3; -fx-focus-color: gray;"
+                                  wrapText="true" AnchorPane.bottomAnchor="297.0" AnchorPane.leftAnchor="14.0"
+                                  AnchorPane.rightAnchor="386.0" AnchorPane.topAnchor="14.0">
+                            <cursor>
+                                <Cursor fx:constant="TEXT"/>
+                            </cursor>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <padding>
+                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+                            </padding>
+                        </TextArea>
+                        <TextField layoutX="615.0" layoutY="35.0" prefHeight="31.0" prefWidth="297.0"
+                                   promptText="Enter file name " AnchorPane.bottomAnchor="495.0"
+                                   AnchorPane.topAnchor="35.0"/>
+                        <ChoiceBox layoutX="615.0" layoutY="206.0" prefHeight="31.0" prefWidth="297.0"
+                                   AnchorPane.bottomAnchor="342.0" AnchorPane.topAnchor="188.0">
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem text="Use 1 method"/>
+                                        <MenuItem mnemonicParsing="false" text="Use 2 method"/>
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </ChoiceBox>
+                        <Button layoutX="615.0" layoutY="139.0" mnemonicParsing="false" prefHeight="31.0"
+                                prefWidth="297.0" text="File-Chooser" AnchorPane.bottomAnchor="393.0"
+                                AnchorPane.topAnchor="137.0"/>
+                        <TextField layoutX="615.0" layoutY="249.0" prefHeight="31.0" prefWidth="297.0"
+                                   promptText="Enter key" AnchorPane.bottomAnchor="291.0" AnchorPane.topAnchor="239.0"/>
+                        <Label alignment="CENTER" layoutX="615.0" layoutY="296.0" prefHeight="31.0" prefWidth="297.0"
+                               text="Input some Error" AnchorPane.topAnchor="290.0"/>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="DECRYPT">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="442.0" prefWidth="1032.0">
+                    <children>
+                        <TextFlow layoutX="14.0" layoutY="14.0" prefHeight="250.0" prefWidth="550.0"
+                                  style="-fx-border-radius: 13; -fx-border-color: gray; -fx-border-width: 3;"
+                                  AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                            <cursor>
+                                <Cursor fx:constant="TEXT"/>
+                            </cursor>
+                        </TextFlow>
+                        <TextFlow layoutX="14.0" layoutY="277.0" prefHeight="250.0" prefWidth="550.0"
+                                  style="-fx-border-color: gray; -fx-border-radius: 13; -fx-border-width: 3;"
+                                  AnchorPane.topAnchor="277.0"/>
+                        <ChoiceBox layoutX="615.0" layoutY="108.0" prefHeight="31.0" prefWidth="297.0"
+                                   AnchorPane.bottomAnchor="446.0" AnchorPane.topAnchor="86.0">
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Use 1 method"/>
+                                        <MenuItem mnemonicParsing="false" text="Use 2 method"/>
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </ChoiceBox>
+                        <Button layoutX="802.0" layoutY="496.0" mnemonicParsing="false" prefHeight="30.0"
+                                prefWidth="110.0" text="Enter"/>
+                        <Button layoutX="615.0" layoutY="496.0" mnemonicParsing="false" prefHeight="30.0"
+                                prefWidth="100.0" text="Save " AnchorPane.rightAnchor="235.0"/>
+                        <Label alignment="CENTER" layoutX="615.0" layoutY="292.0" prefHeight="31.0" prefWidth="297.0"
+                               text="Input some Error" AnchorPane.topAnchor="290.0"/>
+                        <TextField layoutX="615.0" layoutY="281.0" prefHeight="31.0" prefWidth="297.0"
+                                   promptText="Enter key" AnchorPane.bottomAnchor="291.0" AnchorPane.topAnchor="239.0"/>
+                        <Button layoutX="615.0" layoutY="161.0" mnemonicParsing="false" prefHeight="31.0"
+                                prefWidth="297.0" text="File-Chooser" AnchorPane.bottomAnchor="393.0"
+                                AnchorPane.topAnchor="137.0"/>
+                        <ChoiceBox layoutX="615.0" layoutY="210.0" prefHeight="31.0" prefWidth="297.0"
+                                   AnchorPane.bottomAnchor="342.0" AnchorPane.topAnchor="188.0">
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Use 1 method"/>
+                                        <MenuItem mnemonicParsing="false" text="Use 2 method"/>
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </ChoiceBox>
+                        <TextField layoutX="615.0" layoutY="41.0" prefHeight="31.0" prefWidth="297.0"
+                                   promptText="Enter file name " AnchorPane.bottomAnchor="495.0"
+                                   AnchorPane.topAnchor="35.0"/>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="log" text="Log">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+            </content>
+        </Tab>
+        <Tab fx:id="exit" onSelectionChanged="#exitMethod" text="Exit">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

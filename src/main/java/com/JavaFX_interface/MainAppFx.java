@@ -21,28 +21,10 @@ public class MainAppFx extends Application {
     @FXML
     private static Button button3;
 
-
-
-    @Override
-      public void start(Stage primaryStage) throws Exception {
-        this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("CryptoApp");
-
-        try {
-            Parent root = FXMLLoader.load(MainAppFx.class.getResource("view/Main.fxml"));
-            primaryStage.setScene(new Scene(root, null));
-            primaryStage.setTitle("CryptoApp");
-
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
        public static void  initShowReg(){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainAppFx.class.getResource("view/Reg.fxml"));
+            loader.setLocation(MainAppFx.class.getResource("/com/fxml/Reg.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             Stage reg = new Stage();
@@ -66,7 +48,7 @@ public class MainAppFx extends Application {
     public static void initShowEnter(){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainAppFx.class.getResource("view/Enter.fxml"));
+            loader.setLocation(MainAppFx.class.getResource("/com/fxml/Enter.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             Stage enter = new Stage();
@@ -93,7 +75,7 @@ public class MainAppFx extends Application {
 
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(MainAppFx.class.getResource("view/Menu.fxml"));
+        loader.setLocation(MainAppFx.class.getResource("/com/fxml/Menu.fxml"));
         TabPane page = (TabPane) loader.load();
         Stage enter = new Stage();
         enter.setTitle("Enter");
@@ -107,13 +89,30 @@ public class MainAppFx extends Application {
 
         enter.show();
     }
+
     public static void CloseMethod() {
 
        primaryStage.close();
     }
-    
+
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    @Override
+      public void start(Stage primaryStage) throws Exception {
+        this.primaryStage = primaryStage;
+        this.primaryStage.setTitle("CryptoApp");
+
+        try {
+            Parent root = FXMLLoader.load(MainAppFx.class.getResource("/com/fxml/Main.fxml"));
+            primaryStage.setScene(new Scene(root, null));
+            primaryStage.setTitle("CryptoApp");
+
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
