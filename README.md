@@ -23,7 +23,7 @@ You can come up with different keys.
 * git
 * MD5 hashing
 * DES, AES encryption
-* agile(youTrack, Jira)
+* agile(kanban - youTrack, scrum - Jira)
 * design patterns
 
 ##Installation for developpers
