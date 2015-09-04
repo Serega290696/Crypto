@@ -69,7 +69,6 @@
                         <CheckBox fx:id="checkBox" layoutX="793.0" layoutY="187.0" mnemonicParsing="false" onAction="#randomKey" prefHeight="31.0" prefWidth="119.0" text="Random key" AnchorPane.topAnchor="188.0" />
                      </children>
                   </HBox>
-                  <Button layoutX="630.0" layoutY="410.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="117.0" text="saveF" />
                     </children>
                 </AnchorPane>
             </content>
