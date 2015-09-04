@@ -1434,3 +1434,27 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2015-09-04 16:23:28,793   [    INFO]  [               dialect.Dialect] - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
 2015-09-04 16:23:28,813   [    INFO]  [al.TransactionFactoryInitiator] - HHH000399: Using default transaction strategy (direct JDBC transactions)
 2015-09-04 16:23:28,816   [    INFO]  [.ast.ASTQueryTranslatorFactory] - HHH000397: Using ASTQueryTranslatorFactory
+2015-09-04 23:28:40,684   [    INFO]  [    annotations.common.Version] - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-09-04 23:28:40,689   [    INFO]  [                       Version] - HHH000412: Hibernate Core {4.1.11.Final}
+2015-09-04 23:28:40,691   [    INFO]  [               cfg.Environment] - HHH000206: hibernate.properties not found
+2015-09-04 23:28:40,692   [    INFO]  [               cfg.Environment] - HHH000021: Bytecode provider name : javassist
+2015-09-04 23:28:40,711   [    INFO]  [             cfg.Configuration] - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-09-04 23:28:40,711   [    INFO]  [             cfg.Configuration] - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-09-04 23:28:40,739   [    WARN]  [nal.util.xml.DTDEntityResolver] - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-09-04 23:28:40,761   [    INFO]  [             cfg.Configuration] - HHH000221: Reading mappings from resource: com/User.hbm.xml
+2015-09-04 23:28:40,780   [    WARN]  [nal.util.xml.DTDEntityResolver] - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-09-04 23:28:40,792   [    INFO]  [             cfg.Configuration] - HHH000221: Reading mappings from resource: com/Note.hbm.xml
+2015-09-04 23:28:40,793   [    WARN]  [nal.util.xml.DTDEntityResolver] - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-09-04 23:28:40,802   [    INFO]  [             cfg.Configuration] - HHH000041: Configured SessionFactory: null
+2015-09-04 23:28:40,885   [    INFO]  [rManagerConnectionProviderImpl] - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-09-04 23:28:40,888   [    INFO]  [rManagerConnectionProviderImpl] - HHH000115: Hibernate connection pool size: 20
+2015-09-04 23:28:40,889   [    INFO]  [rManagerConnectionProviderImpl] - HHH000006: Autocommit mode: false
+2015-09-04 23:28:40,889   [    INFO]  [rManagerConnectionProviderImpl] - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/crypto]
+2015-09-04 23:28:40,889   [    INFO]  [rManagerConnectionProviderImpl] - HHH000046: Connection properties: {user=root, password=****}
+2015-09-04 23:28:43,024   [    WARN]  [jdbc.internal.JdbcServicesImpl] - HHH000342: Could not obtain connection to query metadata : Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2015-09-04 23:28:43,031   [    INFO]  [               dialect.Dialect] - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-09-04 23:28:43,042   [    INFO]  [dbc.internal.LobCreatorBuilder] - HHH000422: Disabling contextual LOB creation as connection was null
+2015-09-04 23:28:43,055   [    INFO]  [al.TransactionFactoryInitiator] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-09-04 23:28:43,062   [    INFO]  [.ast.ASTQueryTranslatorFactory] - HHH000397: Using ASTQueryTranslatorFactory
