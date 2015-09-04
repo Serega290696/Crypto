@@ -1,6 +1,6 @@
-package crypto.view;
+package com.JavaFX_interface.view;
 
-import crypto.MainApp;
+import com.JavaFX_interface.MainAppFx;
 import javafx.fxml.FXML;
 
 
@@ -11,17 +11,17 @@ public class MainController  {
 
        @FXML
         public void EnterMethod(){
-            MainApp.initShowEnter();
+            MainAppFx.initShowEnter();
         }
 
         @FXML
         public void RegMethod(){
-            MainApp.initShowReg();
+            MainAppFx.initShowReg();
     }
 
 
     public void methodA() throws Exception{
-        MainApp.CloseMethod();
-        MainApp.initMenu();
+        MainAppFx.CloseMethod();
+        MainAppFx.initMenu();
     }
 }

@@ -1,4 +1,4 @@
-package crypto.view;
+package com.JavaFX_interface.view;
 
 import javafx.fxml.FXML;
 import javafx.stage.Stage;

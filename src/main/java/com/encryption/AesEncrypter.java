@@ -3,6 +3,7 @@ package com.encryption;
 /**
  * Created by Вова on 26.07.2015.
  */
+
 import com.encryption.hashing.HashingMD5;
 import com.exceptions.EncryptionException;
 import org.apache.commons.codec.binary.Base64;
@@ -66,6 +67,5 @@ public class AesEncrypter implements ICryptographer {
         }
         return tmpStr.substring(tmpStr.length()-defaultKeyLength-1, tmpStr.length()-1);
     }
-
 
 }
