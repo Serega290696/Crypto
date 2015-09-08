@@ -22,6 +22,6 @@ public class MainController {
 
     public void methodA() throws Exception {
         MainAppFx.CloseMethod();
-        MainAppFx.initMenu();
+       // MainAppFx.initMenu();
     }
 }
