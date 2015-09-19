@@ -1,0 +1,12 @@
+2015-08-29 00:27:07,876 [ ERROR][gDBManipulation] - During adding new User. User already exist!
+Try to added user: User{id=0, login='', mail='', name='', password='', maxNotes=200, maxNoteLength=10000, registration=Sat Aug 29 00:27:07 EEST 2015, lastVisit=Sat Aug 29 00:27:07 EEST 2015}
+2015-08-29 00:27:24,096 [ ERROR][gDBManipulation] - During adding new User. User already exist!
+Try to added user: User{id=0, login='', mail='', name='', password='', maxNotes=200, maxNoteLength=10000, registration=Sat Aug 29 00:27:23 EEST 2015, lastVisit=Sat Aug 29 00:27:23 EEST 2015}
+2015-08-29 00:27:38,096 [ ERROR][gDBManipulation] - During adding new User. User already exist!
+Try to added user: User{id=0, login='', mail='', name='', password='', maxNotes=200, maxNoteLength=10000, registration=Sat Aug 29 00:27:38 EEST 2015, lastVisit=Sat Aug 29 00:27:38 EEST 2015}
+2015-08-29 00:28:50,756 [ ERROR][gDBManipulation] - During adding new User. User already exist!
+Try to added user: User{id=0, login='', mail='', name='', password='', maxNotes=200, maxNoteLength=10000, registration=Sat Aug 29 00:28:50 EEST 2015, lastVisit=Sat Aug 29 00:28:50 EEST 2015}
+2015-08-29 00:30:30,923 [ ERROR][gDBManipulation] - During adding new User. User already exist!
+Try to added user: User{id=0, login='Serega', mail='', name='', password='', maxNotes=200, maxNoteLength=10000, registration=Sat Aug 29 00:30:30 EEST 2015, lastVisit=Sat Aug 29 00:30:30 EEST 2015}
+2015-08-29 00:38:19,991 [ ERROR][gDBManipulation] - During adding new User. User already exist!
+Try to added user: User{id=0, login='Vova', mail='vovabondare@ukr.net', name='Vova', password='b52acd8ee5bf5b516e4f70cb0c2eda9f', maxNotes=200, maxNoteLength=10000, registration=Sat Aug 29 00:38:19 EEST 2015, lastVisit=Sat Aug 29 00:38:19 EEST 2015}

@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.data_base.entities.User" table="users" catalog="crypto">
+    <class name="data_base.entities.User" table="users" catalog="crypto">
         <id name="id" type="java.lang.Long">
             <column name="id" />
             <generator class="identity" />

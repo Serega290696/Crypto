@@ -11,7 +11,7 @@ You can come up with different keys.
 
 ##Autors
 1. Beltser Sergey.
-2. Bondarenko Vladimir.
+2. Bondarenko Vladymyr.
 
 ##Skill used
 * Java8 SE
