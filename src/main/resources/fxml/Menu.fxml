@@ -98,7 +98,7 @@
                            <children>
                               <TextField fx:id="dName" layoutX="615.0" layoutY="41.0" prefHeight="31.0" prefWidth="297.0" promptText="Enter file name " AnchorPane.bottomAnchor="495.0" AnchorPane.topAnchor="35.0" />
                               <ComboBox fx:id="comboBox11" layoutX="615.0" layoutY="87.0" prefHeight="31.0" prefWidth="297.0" promptText="Decrypt  Text/File " AnchorPane.bottomAnchor="446.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="86.0" />
-                              <Button fx:id="fileChooser1" disable="true" layoutX="615.0" layoutY="161.0" mnemonicParsing="false" onAction="#chooser" prefHeight="31.0" prefWidth="297.0" text="File-Chooser" AnchorPane.bottomAnchor="393.0" AnchorPane.topAnchor="137.0" />
+                              <Button fx:id="fileChooser1" disable="true" layoutX="615.0" layoutY="161.0" mnemonicParsing="false" onAction="#chooserD" prefHeight="31.0" prefWidth="297.0" text="File-Chooser" AnchorPane.bottomAnchor="393.0" AnchorPane.topAnchor="137.0" />
                            </children>
                         </VBox>
                         <HBox layoutX="615.0" layoutY="189.0" spacing="18.0">

@@ -375,6 +375,19 @@ public class MenuController implements Initializable {
         eTextIn.setText(textFromFile);
     }
 
+    public void chooserD() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Document");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File file = fileChooser.showOpenDialog(menu);
+
+        System.out.println(file);
+
+        String textFromFile = fileWorker.read(String.valueOf(file));
+        dTextIn.setText(textFromFile);
+    }
+
 
     public static User getCurrentUser() {
         return currentUser;
@@ -445,9 +458,6 @@ public class MenuController implements Initializable {
 
     public void deleteNote() {
         NotesDAO notesDAO = new NotesDAO();
-//        resetNotesTable();
-
-//        int selectedIndex = ;
         int selectedIndex = notesTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex > 0) {
             notesTable.getItems().remove(selectedIndex);
@@ -458,8 +468,8 @@ public class MenuController implements Initializable {
     }
 
     public void decryptText() {
-        dTextIn.setText(((Note) notesTable.getSelectionModel().getSelectedItem()).getTitle());
-        dName.setText(((Note) notesTable.getSelectionModel().getSelectedItem()).getValue());
+        dName.setText(((Note) notesTable.getSelectionModel().getSelectedItem()).getTitle());
+        dTextIn.setText(((Note) notesTable.getSelectionModel().getSelectedItem()).getValue());
     }
 
     public void cancel() {

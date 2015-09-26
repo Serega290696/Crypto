@@ -42,11 +42,9 @@ public class EnterController {
 
     @FXML
     private void handleOk() throws Exception {
-
+        logLabel.setTextFill(Color.RED);
         if(log1.getText().equals("") || pass2.getText().equals("")) {
-            System.err.println("Something go wrong. . .");
-            logLabel.setText(log1.getText().equals("") ? "Field login is empty":"Field password is empty");
-            logLabel.setTextFill(Color.RED);
+            logLabel.setText(log1.getText().equals("") ? "Login is empty":"Password is empty");
             return;
         }
         User user = new User();
@@ -60,6 +58,8 @@ public class EnterController {
             MainAppFx.CloseMethod();
             MainAppFx.initMenu();
 //            new MenuController().initMenu();
+        }else {
+            logLabel.setText("Login or password is not correct");
         }
     }
 
