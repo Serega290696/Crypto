@@ -4,7 +4,9 @@ import data_base.data_access_objects.UsersDAO;
 import data_base.entities.DBConstant;
 import data_base.entities.User;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.Date;
@@ -35,6 +37,9 @@ public class RegController {
     private TextField pass5;
 
     @FXML
+    private Label regLabel;
+
+    @FXML
     private void initialize() {
     }
 
@@ -50,15 +55,21 @@ public class RegController {
 
     @FXML
     private void handleOk() {
+        regLabel.setTextFill(Color.RED);
         if(
-                !pass4.getText().equals(pass5.getText()) ||
-                        !isValidateMail(mail3.getText()) ||
-                        !isValidateLogin(log1.getText())
+                !pass4.getText().equals(pass5.getText())
                 ) {
-            System.out.println("Something go wrong. . .");
+            regLabel.setText("Password is not equal");
             return;
         }
-
+        if (!isValidateMail(mail3.getText())){
+            regLabel.setText("Mail is not valid");
+            return;
+        }
+        if (!isValidateLogin(log1.getText())){
+            regLabel.setText("Login must have over 4 symbols");
+            return;
+        }
         User newUser = new User();
         newUser.setLogin(log1.getText());
         newUser.setName(name2.getText());

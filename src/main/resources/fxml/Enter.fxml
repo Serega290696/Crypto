@@ -35,7 +35,7 @@
             <TextField fx:id="log1" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <Label fx:id="logLabel" alignment="CENTER" layoutX="77.0" layoutY="31.0" prefHeight="31.0" prefWidth="243.0">
+      <Label fx:id="logLabel" alignment="CENTER" layoutX="10.0" layoutY="31.0" prefHeight="31.0" prefWidth="361.0">
          <font>
             <Font size="18.0" />
          </font></Label>
