@@ -5,7 +5,9 @@ package encryption;
  */
 public interface ICryptographer {
 
-    public String encrypt(String text, String... keys);
-    public String decrypt(String text, String... keys);
+    String encrypt(String text, String... keys);
 
+    String decrypt(String text, String... keys);
+
+    String setKey(String key1);
 }

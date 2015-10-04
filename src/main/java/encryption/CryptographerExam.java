@@ -13,4 +13,9 @@ public class CryptographerExam implements ICryptographer{
     public String decrypt(String text, String... keys) {
         return text.substring(0, text.length() - keys[0].length());
     }
+
+    @Override
+    public String setKey(String key1) {
+        return null;
+    }
 }

@@ -5,23 +5,24 @@ import javafx.fxml.FXML;
 
 
 /**
- * Created by Вова on 04.08.2015.
+ * Created by Вова.
  */
 public class MainController {
 
     @FXML
-    public void EnterMethod() {
+    public void login() {
         MainAppFx.initShowEnter();
     }
 
     @FXML
-    public void RegMethod() {
+    public void registration() {
         MainAppFx.initShowReg();
     }
 
-
     public void methodA() throws Exception {
-        MainAppFx.CloseMethod();
-       // MainAppFx.initMenu();
+        // !!!!  !!!!  !!!!!!! DELETE IN INIT METHOD IN MenuController !!!!!!
+
+//        MainAppFx.CloseMethod();
+        MainAppFx.initMenu();
     }
 }

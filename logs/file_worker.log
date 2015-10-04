@@ -1,0 +1,37 @@
+2015-10-01 06:20:39,328 [  WARN][   logFileWorker] - File "Bagi.txt" does not exist!
+2015-10-01 16:09:05,786 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" does not exist!
+2015-10-01 16:11:28,044 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" does not exist!
+2015-10-01 16:11:49,575 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" does not exist!
+2015-10-01 16:15:06,613 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" does not exist!
+2015-10-01 16:17:37,464 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" does not exist!
+2015-10-01 16:21:05,047 [ TRACE][   logFileWorker] - Read from file: "qwdqwdqwfqwfqwf.txt".
+2015-10-01 16:21:05,048 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" does not exist!
+2015-10-01 16:21:06,119 [ TRACE][   logFileWorker] - Write in file: "HgZXSWip6nE=". Text: "D:\0-Archive\GoogleD...".
+2015-10-01 16:21:06,119 [ TRACE][   logFileWorker] - File "HgZXSWip6nE=" was created!
+2015-10-01 16:35:21,277 [ TRACE][   logFileWorker] - Read from file: "qwdqwdqwfqwfqwf.txt".
+2015-10-01 16:35:21,314 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" does not exist!
+2015-10-01 16:35:22,718 [ TRACE][   logFileWorker] - Write in file: "QVv8p+N3XxM=". Text: "D:\0-Archive\GoogleD...".
+2015-10-01 16:35:22,719 [ TRACE][   logFileWorker] - File "QVv8p+N3XxM=" was created!
+2015-10-01 16:36:15,026 [ TRACE][   logFileWorker] - Read from file: "qwdqwdqwfqwfqwf.txt".
+2015-10-01 16:36:15,026 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" does not exist!
+2015-10-01 16:38:06,485 [ TRACE][   logFileWorker] - Read from file: "qwdqwdqwfqwfqwf.txt".
+2015-10-01 16:38:06,486 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" does not exist!
+2015-10-01 16:38:07,972 [ TRACE][   logFileWorker] - Write in file: "qwdqwdqwfqwfqwf.txt". Text: "hn3xoq2ktkcfvQTxmjya...".
+2015-10-01 16:38:07,972 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" was rewrite!
+2015-10-01 16:38:19,200 [ TRACE][   logFileWorker] - Write in file: "qwdqwdqwfqwfqwf.txt". Text: "hn3xoq2ktkcfvQTxmjya...".
+2015-10-01 16:38:19,200 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" was rewrite!
+2015-10-01 16:38:38,396 [ TRACE][   logFileWorker] - Write in file: "qwdqwdqwfqwfqwf.txt". Text: "hn3xoq2ktkdN4yeaVodZ...".
+2015-10-01 16:38:38,396 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" was rewrite!
+2015-10-01 16:39:05,933 [ TRACE][   logFileWorker] - Read from file: "qwdqwdqwfqwfqwf.txt".
+2015-10-01 16:39:05,934 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" does not exist!
+2015-10-01 16:39:06,708 [ TRACE][   logFileWorker] - Write in file: "qwdqwdqwfqwfqwf.txt". Text: "asassssss...".
+2015-10-01 16:39:06,708 [  WARN][   logFileWorker] - File "qwdqwdqwfqwfqwf.txt" was rewrite!
+2015-10-04 22:49:43,648 [  WARN][   logFileWorker] - File "123123.txt" does not exist!
+2015-10-04 23:12:24,049 [  WARN][   logFileWorker] - File "123123.txt" does not exist!
+2015-10-04 23:12:40,931 [  WARN][   logFileWorker] - File "123123.txt" does not exist!
+2015-10-04 23:13:54,891 [  WARN][   logFileWorker] - File "123123.txt" does not exist!
+2015-10-04 23:14:42,105 [  WARN][   logFileWorker] - File "123123.txt" does not exist!
+2015-10-05 00:06:15,128 [  WARN][   logFileWorker] - File "123123.txt" does not exist!
+2015-10-05 00:12:25,717 [  WARN][   logFileWorker] - File "123123.txt" does not exist!
+2015-10-05 00:12:27,607 [  WARN][   logFileWorker] - File "123123.txt" does not exist!
+2015-10-05 00:14:06,520 [  WARN][   logFileWorker] - File "123123.txt" does not exist!

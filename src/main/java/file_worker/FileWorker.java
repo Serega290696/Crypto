@@ -9,9 +9,12 @@ public class FileWorker implements IFileWorker {
     private static final Logger logger = Logger.getLogger("logFileWorker");
 
     public void write(String fileName, String text) {
+        write(new File(fileName), text);
+    }
+    public void write(File file, String text) {
+        String fileName = file.getName();
         if (logger.isTraceEnabled())
-            logger.trace("Write in file: \"" + fileName + "\". Text: \"" + text.substring(0, 20) + "...\".");
-        File file = new File(fileName);
+            logger.trace("Write in file: \"" + fileName + "\". Text: \"" + (text.length()>20?text.substring(0, 20):text) + "...\".");
 
         try {
             if (!file.exists()) {
@@ -35,10 +38,13 @@ public class FileWorker implements IFileWorker {
     }
 
     public String read(String fileName) {
+        return read(new File(fileName));
+    }
+    public String read(File file) {
+        String fileName = file.getAbsolutePath();
         if (logger.isTraceEnabled())
             logger.trace("Read from file: \"" + fileName + "\".");
         StringBuilder sb = new StringBuilder();
-        File file = new File(fileName);
         try {
             exists(fileName);
         } catch (FileNotFoundException e) {

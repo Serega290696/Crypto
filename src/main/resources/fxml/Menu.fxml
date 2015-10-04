@@ -11,19 +11,28 @@
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX_interface.view.MenuController">
     <tabs>
-        <Tab text="ENCRYPT">
+        <Tab fx:id="encryptTab" closable="false" text="ENCRYPT">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                  <HBox layoutX="615.0" layoutY="496.0" spacing="87.0">
+                  <HBox layoutX="615.0" layoutY="496.0" spacing="87.0" />
+                  <VBox fx:id="sourceBigBox" layoutX="14.0" layoutY="11.0">
                      <children>
-                              <Button fx:id="save" layoutX="603.0" layoutY="496.0" mnemonicParsing="false" onAction="#saveFile" prefHeight="30.0" prefWidth="100.0" text="Save " AnchorPane.rightAnchor="235.0" />
-                              <Button fx:id="enterE" layoutX="802.0" layoutY="496.0" mnemonicParsing="false" onAction="#enterEResult" prefHeight="30.0" prefWidth="110.0" text="Enter" />
-                     </children>
-                  </HBox>
-                  <VBox layoutX="14.0" layoutY="35.0" spacing="10.0">
-                     <children>
-                              <TextArea fx:id="eTextIn" layoutX="552.0" layoutY="93.0" prefHeight="250.0" prefWidth="550.0" promptText="Enter text " style="-fx-border-color: gray; -fx-border-radius: 13; -fx-border-width: 3; -fx-focus-color: gray; -fx-position-shape: absolute;" wrapText="true" AnchorPane.bottomAnchor="297.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="386.0" AnchorPane.topAnchor="14.0">
+                        <HBox prefHeight="46.0" prefWidth="550.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="147.0" text="Choose text source:  ">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="sourceBox" onAction="#changeSource" prefHeight="25.0" prefWidth="156.0" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="inputFileChooser" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#fileChooserActionSource" prefHeight="50.0" prefWidth="550.0" text="Choose file" textOverrun="CLIP">
+                           <VBox.margin>
+                              <Insets bottom="250.0" />
+                           </VBox.margin></Button>
+                              <TextArea fx:id="inputText" layoutX="552.0" layoutY="93.0" prefHeight="300.0" prefWidth="550.0" promptText="Enter text " style="-fx-border-color: gray; -fx-border-radius: 0; -fx-border-width: 3; -fx-focus-color: gray; -fx-position-shape: absolute;" wrapText="true" AnchorPane.bottomAnchor="297.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="386.0" AnchorPane.topAnchor="14.0">
                                   <cursor>
                                       <Cursor fx:constant="TEXT" />
                                   </cursor>
@@ -34,7 +43,12 @@
                                       <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                   </padding>
                               </TextArea>
-                        <TextArea fx:id="eTextOut" editable="false" layoutX="135.0" layoutY="51.0" prefHeight="250.0" prefWidth="550.0" promptText="Get result" style="-fx-border-color: gray; -fx-border-radius: 13; -fx-border-width: 3; -fx-focus-color: gray; -fx-position-shape: absolute;" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="277.0">
+                        <Label contentDisplay="CENTER" prefHeight="50.0" prefWidth="111.0" text="     Encrypted text:" textAlignment="CENTER">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="outputText" disable="true" editable="false" layoutX="135.0" layoutY="51.0" prefHeight="150.0" prefWidth="550.0" promptText="Get result" style="-fx-border-color: gray; -fx-border-radius: 0; -fx-border-width: 3; -fx-focus-color: gray; -fx-position-shape: absolute;" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="277.0">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
@@ -47,71 +61,128 @@
                         </TextArea>
                      </children>
                   </VBox>
-                  <VBox layoutX="615.0" layoutY="35.0" spacing="20.0">
-                     <children>
-                        <TextField fx:id="nameFile" layoutX="615.0" layoutY="35.0" prefHeight="31.0" prefWidth="297.0" promptText="Enter file name " AnchorPane.bottomAnchor="495.0" AnchorPane.topAnchor="35.0" />
-                        <ComboBox fx:id="comboBox1" layoutX="615.0" layoutY="208.0" prefHeight="31.0" prefWidth="297.0" promptText="Enrypt  Text/File " AnchorPane.bottomAnchor="446.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="86.0" />
-                        <Button fx:id="fileChooser" disable="true" layoutX="615.0" layoutY="139.0" mnemonicParsing="false" onAction="#chooser" prefHeight="31.0" prefWidth="297.0" text="File-Chooser" AnchorPane.bottomAnchor="393.0" AnchorPane.topAnchor="137.0" />
-                     </children>
-                  </VBox>
-                  <VBox layoutX="615.0" layoutY="239.0" spacing="20.0">
-                     <children>
-                        <TextField fx:id="key" layoutX="615.0" layoutY="249.0" prefHeight="31.0" prefWidth="297.0" promptText="Enter key" AnchorPane.bottomAnchor="291.0" AnchorPane.topAnchor="239.0" />
-                        <Label fx:id="label" alignment="CENTER" layoutX="615.0" layoutY="296.0" prefHeight="39.0" prefWidth="297.0" text="Input some Error" AnchorPane.topAnchor="290.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Label>
-                     </children>
-                  </VBox>
-                  <HBox layoutX="615.0" layoutY="188.0" spacing="18.0">
-                     <children>
-                        <ComboBox fx:id="comboBox2" layoutX="615.0" layoutY="321.0" onAction="#setEMethodChooser" prefHeight="31.0" prefWidth="160.0" promptText="Encrypt Method" style="-fx-position-shape: fixed;" AnchorPane.bottomAnchor="342.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="188.0" />
-                        <CheckBox fx:id="checkBox" layoutX="793.0" layoutY="187.0" mnemonicParsing="false" onAction="#randomKey" prefHeight="31.0" prefWidth="119.0" text="Random key" AnchorPane.topAnchor="188.0" />
-                     </children>
-                  </HBox>
+                  <VBox layoutX="615.0" layoutY="35.0" spacing="20.0" />
+                  <VBox layoutX="615.0" layoutY="239.0" spacing="20.0" />
+                  <HBox layoutX="615.0" layoutY="188.0" spacing="18.0" />
+                  <TextField fx:id="key" alignment="TOP_LEFT" layoutX="615.0" layoutY="34.0" promptText="Key">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="repeatKey" layoutX="615.0" layoutY="73.0" promptText="Repeat key">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <CheckBox fx:id="showKey" layoutX="817.0" layoutY="41.0" mnemonicParsing="false" onAction="#useMasterKey" text="Use master key" />
+                  <Separator layoutX="595.0" layoutY="177.0" prefHeight="3.0" prefWidth="335.0" />
+                  <CheckBox fx:id="saveInFavorites" layoutX="616.0" layoutY="189.0" mnemonicParsing="false" text="Save in favourites" />
+                  <CheckBox fx:id="saveInFile" layoutX="615.0" layoutY="289.0" mnemonicParsing="false" text="Save in file" />
+                  <Separator layoutX="594.0" layoutY="276.0" prefHeight="2.0" prefWidth="336.0" />
+                  <TextField fx:id="noteNameField" layoutX="615.0" layoutY="231.0" prefHeight="25.0" prefWidth="315.0" promptText="Title" />
+                        <Button fx:id="submit" defaultButton="true" layoutX="720.0" layoutY="520.0" mnemonicParsing="false" onAction="#submitAction" prefHeight="37.0" prefWidth="204.0" text="Enter">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="clear" cancelButton="true" layoutX="600.0" layoutY="521.0" mnemonicParsing="false" onAction="#resetData" prefHeight="36.0" prefWidth="102.0" text="Clear" />
+                  <Label layoutX="621.0" layoutY="14.0" text="Enter key:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="generateButton" layoutX="818.0" layoutY="73.0" mnemonicParsing="false" onAction="#randomizeKey" prefHeight="31.0" prefWidth="76.0" text="Generate" />
+                  <Button fx:id="fileChooserButton" layoutX="615.0" layoutY="315.0" mnemonicParsing="false" onAction="#fileChooserAction" prefHeight="25.0" prefWidth="315.0" text="Choose file" />
+                  <Label layoutX="619.0" layoutY="118.0" text="Encryption method:" />
+                  <Label layoutX="620.0" layoutY="213.0" text="Note name:" />
+                  <Label fx:id="doneLabelEncryption" layoutX="604.0" layoutY="373.0" prefHeight="17.0" prefWidth="331.0" text="ENCRYPTION SUCCESSFUL. Characters: 545" textFill="#51da58">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="doneLabelSaveInNotes" layoutX="603.0" layoutY="390.0" text="SAVE IN FAVOURITES SUCCESSFUL. Title: &quot;my vk password&quot;" textAlignment="CENTER" textFill="#51da58">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="doneLabelSaveInFile" layoutX="604.0" layoutY="407.0" text="SAVE IN FILE SUCCESSFUL. File name: &quot;mySecretFile.txt&quot;" textFill="#51da58">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="warnLabelUnknown" layoutX="604.0" layoutY="428.0" prefHeight="17.0" prefWidth="331.0" text="Something go wrong" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="warnLabelKey" layoutX="618.0" layoutY="101.0" prefHeight="17.0" prefWidth="331.0" text="Keys do not match!" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="warnLabelNoteTitle" layoutX="619.0" layoutY="254.0" prefHeight="17.0" prefWidth="331.0" text="Enter title!" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="warnLabelWrongFile" layoutX="618.0" layoutY="340.0" prefHeight="17.0" prefWidth="331.0" text="You didn't choose file" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cryptMethodChooser" layoutX="618.0" layoutY="138.0" prefWidth="150.0" />
                     </children>
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab text="DECRYPT">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="442.0" prefWidth="1032.0">
-                    <children>
-                  <HBox layoutX="615.0" layoutY="496.0" spacing="87.0">
+      <Tab fx:id="decryptTab" closable="false" text="DECRYPT">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <HBox layoutX="615.0" layoutY="496.0" spacing="87.0" />
+                  <VBox fx:id="sourceBigBox2" layoutX="14.0" layoutY="11.0" maxHeight="1.7976931348623157E308">
                      <children>
-                              <Button layoutX="615.0" layoutY="496.0" mnemonicParsing="false" onAction="#saveFile" prefHeight="30.0" prefWidth="100.0" text="Save " AnchorPane.rightAnchor="235.0" />
-                              <Button fx:id="enterD" layoutX="802.0" layoutY="496.0" mnemonicParsing="false" onAction="#enterDResult" prefHeight="30.0" prefWidth="110.0" text="Enter" />
-                     </children>
-                  </HBox>
-                  <VBox layoutX="615.0" layoutY="239.0" spacing="20.0">
-                     <children>
-                        <TextField fx:id="dkey" layoutX="615.0" layoutY="281.0" prefHeight="31.0" prefWidth="297.0" promptText="Enter key" AnchorPane.bottomAnchor="291.0" AnchorPane.topAnchor="239.0" />
-                        <Label fx:id="label1" alignment="CENTER" layoutX="615.0" layoutY="292.0" prefHeight="39.0" prefWidth="297.0" text="Input some Error" AnchorPane.topAnchor="290.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Label>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="615.0" layoutY="35.0" spacing="20.0">
-                     <children>
-                        <VBox layoutX="615.0" layoutY="35.0" spacing="20.0">
+                        <HBox prefHeight="46.0" prefWidth="550.0">
                            <children>
-                              <TextField fx:id="dName" layoutX="615.0" layoutY="41.0" prefHeight="31.0" prefWidth="297.0" promptText="Enter file name " AnchorPane.bottomAnchor="495.0" AnchorPane.topAnchor="35.0" />
-                              <ComboBox fx:id="comboBox11" layoutX="615.0" layoutY="87.0" prefHeight="31.0" prefWidth="297.0" promptText="Decrypt  Text/File " AnchorPane.bottomAnchor="446.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="86.0" />
-                              <Button fx:id="fileChooser1" disable="true" layoutX="615.0" layoutY="161.0" mnemonicParsing="false" onAction="#chooserD" prefHeight="31.0" prefWidth="297.0" text="File-Chooser" AnchorPane.bottomAnchor="393.0" AnchorPane.topAnchor="137.0" />
-                           </children>
-                        </VBox>
-                        <HBox layoutX="615.0" layoutY="189.0" spacing="18.0">
-                           <children>
-                              <ComboBox fx:id="comboBox3" layoutX="615.0" layoutY="321.0" onAction="#setDMethodChooser" prefHeight="31.0" prefWidth="165.0" promptText="Decrypt Method" style="-fx-position-shape: fixed;" AnchorPane.bottomAnchor="342.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="188.0" />
-                              <CheckBox fx:id="checkBox1" layoutX="793.0" layoutY="187.0" mnemonicParsing="false" onAction="#randomKey" prefHeight="31.0" prefWidth="114.0" text="Use save key" AnchorPane.topAnchor="188.0" />
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="147.0" text="Choose text source:  ">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="sourceBox2" onAction="#changeSource2" prefWidth="150.0" />
                            </children>
                         </HBox>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="14.0" layoutY="35.0" spacing="10.0">
-                     <children>
-                        <TextArea fx:id="dTextIn" layoutX="14.0" layoutY="35.0" prefHeight="250.0" prefWidth="550.0" promptText="Enter text " style="-fx-border-color: gray; -fx-border-radius: 13; -fx-border-width: 3; -fx-focus-color: gray; -fx-position-shape: absolute;" wrapText="true">
+                        <Button fx:id="inputFileChooser2" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#fileChooserActionSource" prefHeight="50.0" prefWidth="550.0" text="Choose encrypted file" textOverrun="CLIP">
+                           <VBox.margin>
+                              <Insets bottom="100.0" />
+                           </VBox.margin></Button>
+                        <TextField fx:id="inputNoteTitle2" prefHeight="40.0" promptText="Note name">
+                           <VBox.margin>
+                              <Insets bottom="110.0" />
+                           </VBox.margin></TextField>
+                        <TextArea fx:id="inputText2" layoutX="552.0" layoutY="93.0" prefHeight="150.0" prefWidth="550.0" promptText="Enter text " style="-fx-border-color: gray; -fx-border-radius: 0; -fx-border-width: 3; -fx-focus-color: gray; -fx-position-shape: absolute;" wrapText="true" AnchorPane.bottomAnchor="297.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="386.0" AnchorPane.topAnchor="14.0">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TextArea>
+                        <Label contentDisplay="CENTER" prefHeight="50.0" text="     Decrypted text:" textAlignment="CENTER">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <TextArea fx:id="outputText2" disable="true" editable="false" layoutX="135.0" layoutY="51.0" prefHeight="300.0" prefWidth="550.0" promptText="Get result" style="-fx-border-color: gray; -fx-border-radius: 0; -fx-border-width: 3; -fx-focus-color: gray; -fx-position-shape: absolute;" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="277.0">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
@@ -122,58 +193,81 @@
                               <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                            </padding>
                         </TextArea>
-                        <TextArea fx:id="dTextOut" layoutX="14.0" layoutY="290.0" prefHeight="250.0" prefWidth="550.0" promptText="Enter text " style="-fx-border-color: gray; -fx-border-radius: 13; -fx-border-width: 3; -fx-focus-color: gray; -fx-position-shape: absolute;" wrapText="true">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <padding>
-                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                           </padding>
-                        </TextArea>
                      </children>
                   </VBox>
-                    </children>
-                </AnchorPane>
-            </content>
-        </Tab>
-        <Tab fx:id="logUser" onSelectionChanged="#refreshAction" text="Log">
+                  <VBox layoutX="615.0" layoutY="35.0" spacing="20.0" />
+                  <VBox layoutX="615.0" layoutY="239.0" spacing="20.0" />
+                  <HBox layoutX="615.0" layoutY="188.0" spacing="18.0" />
+                  <TextField fx:id="key2" layoutX="615.0" layoutY="34.0" promptText="Key">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <CheckBox fx:id="showKey2" layoutX="817.0" layoutY="41.0" mnemonicParsing="false" onAction="#useMasterKey" text="Use master key" />
+                  <CheckBox fx:id="saveInFile2" layoutX="616.0" layoutY="151.0" mnemonicParsing="false" text="Save in file" />
+                  <Separator layoutX="595.0" layoutY="138.0" prefHeight="2.0" prefWidth="336.0" />
+                  <Button fx:id="submit2" defaultButton="true" layoutX="720.0" layoutY="520.0" mnemonicParsing="false" onAction="#submitAction" prefHeight="37.0" prefWidth="204.0" text="Enter">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="clear2" cancelButton="true" layoutX="600.0" layoutY="521.0" mnemonicParsing="false" onAction="#resetData" prefHeight="36.0" prefWidth="102.0" text="Clear" />
+                  <Label layoutX="621.0" layoutY="14.0" text="Enter key:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="fileChooserButton2" layoutX="616.0" layoutY="177.0" mnemonicParsing="false" onAction="#fileChooserAction" prefHeight="25.0" prefWidth="315.0" text="Choose file" />
+                  <Label layoutX="619.0" layoutY="79.0" text="Encryption method:" />
+                  <Label fx:id="doneLabelEncryption2" layoutX="604.0" layoutY="373.0" prefHeight="17.0" prefWidth="331.0" text="ENCRYPTION SUCCESSFUL. Characters: 545" textFill="#51da58">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="doneLabelSaveInNotes2" layoutX="603.0" layoutY="390.0" text="SAVE IN FAVOURITES SUCCESSFUL. Title: &quot;my vk password&quot;" textAlignment="CENTER" textFill="#51da58">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="doneLabelSaveInFile2" layoutX="604.0" layoutY="407.0" text="SAVE IN FILE SUCCESSFUL. File name: &quot;mySecretFile.txt&quot;" textFill="#51da58">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="warnLabelUnknown2" layoutX="604.0" layoutY="428.0" prefHeight="17.0" prefWidth="331.0" text="Something go wrong" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="warnLabelKey2" layoutX="618.0" layoutY="62.0" prefHeight="17.0" prefWidth="331.0" text="Key is too short" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="warnLabelWrongFile2" layoutX="619.0" layoutY="202.0" prefHeight="17.0" prefWidth="331.0" text="You didn't choose file" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cryptMethodChooser2" layoutX="619.0" layoutY="99.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+        <Tab fx:id="profileTab" closable="false" text="Profile">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <VBox layoutX="35.0" layoutY="77.0" spacing="31.0">
-                     <children>
-                        <Label fx:id="label1111" alignment="CENTER" layoutX="196.0" layoutY="94.0" text="Login:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="196.0" layoutY="151.0" text="Name:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="196.0" layoutY="215.0" text="Mail:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label text="Old password:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="196.0" layoutY="270.0" text="New password" />
-                        <Label layoutX="196.0" layoutY="349.0" text="Repeat password">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="189.0" layoutY="75.0" spacing="26.0">
+                  <Button fx:id="deleteNotes" layoutX="646.0" layoutY="374.0" mnemonicParsing="false" onAction="#deleteNote" prefHeight="31.0" prefWidth="75.0" text="Delete" />
+                  <Button layoutX="730.0" layoutY="374.0" mnemonicParsing="false" onAction="#decryptNote" prefHeight="31.0" prefWidth="112.0" text="Decrypt" />
+                  <TableView fx:id="notesTable" layoutX="407.0" layoutY="83.0" prefHeight="276.0" prefWidth="430.0">
+                     <columns>
+                        <TableColumn fx:id="nameColumn" minWidth="3.0" prefWidth="179.0" text="Note's name" />
+                        <TableColumn fx:id="encColumn" prefWidth="250.0" text="Encrypted text" />
+                     </columns>
+                  </TableView>
+                  <HBox layoutX="239.0" layoutY="116.0" spacing="25.0" />
+                  <VBox layoutX="165.0" layoutY="65.0" spacing="26.0">
                      <children>
                         <TextField fx:id="log31" layoutX="-10.0" layoutY="100.0" />
                         <TextField fx:id="name32" layoutX="-17.0" layoutY="157.0" />
@@ -183,36 +277,59 @@
                         <TextField fx:id="pass36" layoutY="344.0" />
                      </children>
                   </VBox>
-                  <HBox layoutX="635.0" layoutY="494.0" spacing="25.0">
+                  <VBox alignment="TOP_RIGHT" layoutX="42.0" layoutY="67.0" spacing="31.0">
                      <children>
-                        <Button defaultButton="true" layoutX="566.0" layoutY="505.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="31.0" prefWidth="142.0" text="Save">
+                        <Label fx:id="label1111" alignment="CENTER" layoutX="196.0" layoutY="94.0" text="Login:">
                            <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font></Button>
-                        <Button cancelButton="true" layoutX="771.0" layoutY="505.0" mnemonicParsing="false" onAction="#cancel" prefHeight="31.0" prefWidth="100.0" text="Cancel" />
-                     </children>
-                  </HBox>
-                  <VBox layoutX="36.0" layoutY="431.0" spacing="15.0">
-                     <children>
-                        <Label fx:id="dateReg" alignment="TOP_LEFT" layoutX="508.0" layoutY="77.0" prefHeight="21.0" prefWidth="355.0" />
-                        <Label fx:id="dateEnter" alignment="TOP_LEFT" layoutX="508.0" layoutY="112.0" prefHeight="21.0" prefWidth="362.0" />
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="196.0" layoutY="151.0" text="Name:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="196.0" layoutY="215.0" text="Mail:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Old password:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="196.0" layoutY="270.0" text="New password">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="196.0" layoutY="349.0" text="Repeat password">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </VBox>
-                  <TableView fx:id="notesTable" layoutX="470.0" layoutY="75.0" prefHeight="276.0" prefWidth="430.0">
-                    <columns>
-                      <TableColumn fx:id="nameColumn" minWidth="3.0" prefWidth="179.0" text="Note's name" />
-                        <TableColumn fx:id="encColumn" prefWidth="250.0" text="Encrypted text" />
-                    </columns>
-                  </TableView>
-                  <Button layoutX="788.0" layoutY="357.0" mnemonicParsing="false" onAction="#decryptText" prefHeight="31.0" prefWidth="112.0" text="Decrypt" />
-                  <Label fx:id="fLimit" layoutX="470.0" layoutY="362.0" prefHeight="21.0" prefWidth="250.0" text="Label" />
-                  <Label fx:id="alert" alignment="CENTER" layoutX="469.0" layoutY="424.0" prefHeight="59.0" prefWidth="432.0" textFill="RED" />
-                  <Label fx:id="helloUser" layoutX="36.0" layoutY="17.0" prefHeight="32.0" prefWidth="491.0" text="Hello!" />
-                  <Button fx:id="deleteNotes" layoutX="690.0" layoutY="357.0" mnemonicParsing="false" onAction="#deleteNote" prefHeight="31.0" prefWidth="75.0" text="Delete" />
+                  <Button cancelButton="true" layoutX="621.0" layoutY="514.0" mnemonicParsing="false" onAction="#cancel" prefHeight="31.0" prefWidth="100.0" text="Cancel" />
+                  <Button defaultButton="true" layoutX="744.0" layoutY="514.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="31.0" prefWidth="142.0" text="Save">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="helloUser" layoutX="28.0" layoutY="23.0" text="Hello!" />
+                  <Label fx:id="dateReg" layoutX="42.0" layoutY="442.0" text="Label" />
+                  <Label fx:id="dateEnter" layoutX="42.0" layoutY="478.0" text="Label" />
+                  <Label fx:id="fLimit" layoutX="407.0" layoutY="362.0" prefHeight="22.0" prefWidth="127.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="alert" layoutX="441.0" layoutY="442.0" />
                </children></AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="exit" onSelectionChanged="#exitMethod" text="Exit">
+        <Tab fx:id="logOut" closable="false" onSelectionChanged="#logOutAction" text="Log out">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>

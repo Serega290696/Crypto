@@ -13,6 +13,11 @@
             <param name="ConversionPattern" value="%d{ISO8601}   [%8.8p]  [%30.30c{-2}] - %m%n"/>
         </layout>
     </appender>
+    <appender name="toConsole" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601}   [%8.8p]  [%30.30c{-2}] - %m%n"/>
+        </layout>
+    </appender>
     <appender name="fileDBManipulations" class="org.apache.log4j.RollingFileAppender">
         <param name="File" value="logs/DBManipulations.log"/>
         <param name="MaxFileSize" value="2MB"/>

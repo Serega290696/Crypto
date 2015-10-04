@@ -19,7 +19,7 @@ public class NotesDAO implements DAOInterface<Note> {
                 getAll()
                         .stream()
                         .filter((n) -> newNote.compareTo(n) == 0)
-                        .count() > 0 ? true : false;
+                        .count() > 0;
         boolean exceedLimit = false;
         UsersDAO usersDAO = new UsersDAO();
         User tmpUser = usersDAO.get(newNote.getIdUser());

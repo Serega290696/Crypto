@@ -67,8 +67,6 @@ public class UsersDAO implements DAOInterface<User> {
         }
         if (loggerDBManipulation.isDebugEnabled())
             loggingTrace("Get user: " + user);
-        else
-            loggingDebug("Get user.");
         return returnedUser;
     }
 

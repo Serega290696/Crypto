@@ -76,12 +76,12 @@ public class DesEncrypter implements ICryptographer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        byte[] utf8 = new byte[0];
+        byte[] utf8;
         try {
             utf8 = dcipher.doFinal(dec);
         } catch (IllegalBlockSizeException | BadPaddingException e) {
             System.err.println("Invalid key!");
-            return "";
+            return null;
 //            e.printStackTrace();
         }
         try {

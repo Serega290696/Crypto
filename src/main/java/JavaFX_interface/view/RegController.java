@@ -43,7 +43,7 @@ public class RegController {
     private void initialize() {
     }
 
-    public void setDialogStage(Stage dialogStage)    {
+    public void setDialogStage(Stage dialogStage) {
         this.reg = dialogStage;
     }
 
@@ -56,20 +56,29 @@ public class RegController {
     @FXML
     private void handleOk() {
         regLabel.setTextFill(Color.RED);
-        if(
+        int codeError = 0;
+        if (
                 !pass4.getText().equals(pass5.getText())
                 ) {
             regLabel.setText("Password is not equal");
             return;
         }
-        if (!isValidateMail(mail3.getText())){
+        if (!isValidateMail(mail3.getText())) {
             regLabel.setText("Mail is not valid");
             return;
         }
-        if (!isValidateLogin(log1.getText())){
-            regLabel.setText("Login must have over 4 symbols");
+        if (((codeError = isValidateLogin(log1.getText())) != 0)) {
+            if (codeError == 1)
+                regLabel.setText("Login must have over 4 symbols");
+            else
+                regLabel.setText("User with such login is already exist!");
             return;
         }
+        if (pass4.getText().length() < 6) {
+            regLabel.setText("Password is too short");
+            return;
+        }
+
         User newUser = new User();
         newUser.setLogin(log1.getText());
         newUser.setName(name2.getText());
@@ -82,24 +91,23 @@ public class RegController {
         usersDao.add(newUser);
         System.out.println("Successful.\n\t" + newUser);
 
-
-
-
         reg.close();
     }
 
-    private boolean isValidateLogin(String login) {
-        if(login == null)
-            return false;
-        if(login.length() < 4)
-            return false;
-        return true;
+    private int isValidateLogin(String login) {
+        if (login == null)
+            return 1;
+        if (login.length() < 4)
+            return 1;
+        if (usersDao.getAll().stream().anyMatch((a) -> a.getLogin().equals(login)))
+            return 2;
+        return 0;
     }
 
     private boolean isValidateMail(String text) {
-        if(text == null)
+        if (text == null)
             return false;
-        if(text.equals(""))
+        if (text.equals(""))
             return false;
 
         Pattern p = Pattern.compile(".+@.+\\.[a-z]+");

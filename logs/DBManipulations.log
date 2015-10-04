@@ -10,3 +10,5 @@ Try to added user: User{id=0, login='', mail='', name='', password='', maxNotes=
 Try to added user: User{id=0, login='Serega', mail='', name='', password='', maxNotes=200, maxNoteLength=10000, registration=Sat Aug 29 00:30:30 EEST 2015, lastVisit=Sat Aug 29 00:30:30 EEST 2015}
 2015-08-29 00:38:19,991 [ ERROR][gDBManipulation] - During adding new User. User already exist!
 Try to added user: User{id=0, login='Vova', mail='vovabondare@ukr.net', name='Vova', password='b52acd8ee5bf5b516e4f70cb0c2eda9f', maxNotes=200, maxNoteLength=10000, registration=Sat Aug 29 00:38:19 EEST 2015, lastVisit=Sat Aug 29 00:38:19 EEST 2015}
+2015-10-05 01:15:43,851 [ ERROR][gDBManipulation] - During adding new User. User already exist!
+Try to added user: User{id=0, login='asdasd', mail='aa@as.a', name='exam', password='a8f5f167f44f4964e6c998dee827110c', maxNotes=200, maxNoteLength=10000, registration=Mon Oct 05 01:15:43 MSK 2015, lastVisit=Mon Oct 05 01:15:43 MSK 2015}

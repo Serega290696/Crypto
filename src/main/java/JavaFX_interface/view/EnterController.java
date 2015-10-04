@@ -7,14 +7,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
+
+import java.util.Date;
 
 /**
  * Created by Вова on 04.08.2015.
  */
 public class EnterController {
 
-    private Stage enter;
     private UsersDAO usersDao = new UsersDAO();
 
     @FXML
@@ -26,17 +26,10 @@ public class EnterController {
     @FXML
     private Label logLabel;
 
-    @FXML
-    private void initialize() {
-    }
-
-    public void setDialogStage(Stage dialogStage) {
-        this.enter = dialogStage;
-    }
 
     @FXML
     private void handleCancel() {
-        enter.close();
+        MainAppFx.getAdditionalStage().close();
     }
 
 
@@ -53,15 +46,17 @@ public class EnterController {
         User tmpUser;
 
         if((tmpUser = usersDao.get(user)) != null) {
+            tmpUser.setLastVisitDate(new Date());
             MenuController.setCurrentUser(tmpUser);
-            enter.close();
+            System.out.println("Id1: " + tmpUser.getId());
+            MainAppFx.getAdditionalStage().close();
             MainAppFx.CloseMethod();
             MainAppFx.initMenu();
 //            new MenuController().initMenu();
         }else {
             logLabel.setText("Login or password is not correct");
         }
-    }
 
+    }
 
 }

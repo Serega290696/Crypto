@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -18,9 +19,18 @@
    <children>
       <Pane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Button fx:id="b" layoutX="320.0" layoutY="180.0" mnemonicParsing="false" onAction="#EnterMethod" prefHeight="60.0" prefWidth="160.0" text="Enter" />
-            <Button fx:id="button" layoutX="320.0" layoutY="270.0" mnemonicParsing="false" onAction="#RegMethod" prefHeight="60.0" prefWidth="160.0" text="Registration" />
-            <Button fx:id="button3" layoutX="320.0" layoutY="360.0" mnemonicParsing="false" onAction="#methodA" prefHeight="60.0" prefWidth="160.0" text="Exit" />
+            <Button fx:id="b" layoutX="320.0" layoutY="180.0" mnemonicParsing="false" onAction="#login" prefHeight="60.0" prefWidth="160.0" text="Enter">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="button" layoutX="320.0" layoutY="270.0" mnemonicParsing="false" onAction="#registration" prefHeight="60.0" prefWidth="160.0" text="Registration">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="button3" layoutX="320.0" layoutY="360.0" mnemonicParsing="false" onAction="#methodA" prefHeight="60.0" prefWidth="160.0" text="Exit">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
          </children>
       </Pane>
    </children>

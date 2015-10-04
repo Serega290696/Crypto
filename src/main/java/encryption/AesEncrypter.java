@@ -10,7 +10,7 @@ import org.apache.commons.codec.binary.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-public class AesEncrypter  {
+public class AesEncrypter implements ICryptographer  {
 
     private HashingMD5 hashing = new HashingMD5();
     private int defaultKeyLength = 22;
@@ -33,7 +33,7 @@ public class AesEncrypter  {
         }
         catch (Exception e) {
             e.printStackTrace();
-            return "Error";
+            return null;
         }
         return encryptedString;
     }
@@ -54,7 +54,7 @@ public class AesEncrypter  {
             encryptedString = new String(cipher.doFinal(encryptText));
         } catch (Exception e) {
             e.printStackTrace();
-            return "Error";
+            return null;
         }
         return encryptedString;
     }
